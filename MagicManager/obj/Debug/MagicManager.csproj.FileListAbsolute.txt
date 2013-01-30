@@ -1,0 +1,10 @@
+c:\users\jeremy\documents\visual studio 2012\Projects\MagicManager\MagicManager\bin\Debug\MagicManager.exe.config
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\MagicManager.exe.config
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\MagicManager.exe
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\MagicManager.pdb
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.csprojResolveAssemblyReference.cache
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.MainWindow.resources
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.Properties.Resources.resources
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.csproj.GenerateResource.Cache
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.exe
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.pdb
