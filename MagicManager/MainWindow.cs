@@ -51,14 +51,14 @@ namespace MagicManager
             setSettings.Show();
         }
 
-        private void CardSearch_TextUpdate(object sender, EventArgs e)
+        private void CardSearchBox_TextChanged(object sender, EventArgs e)
         {
-            CardSearch.Items.Clear();
+            dataGridView.Rows.Clear();
             for (int i = 0; i < CardName.Count; i++)
             {
-                if (CardName[i].IndexOf(CardSearch.Text) == 0)
+                if (CardName[i].IndexOf(CardSearchBox.Text) == 0)
                 {
-                    CardSearch.Items.Add(CardName[i] + " [ " + CardExpansion[i] + " ]");
+                    dataGridView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]");
                 }
             }
         }

@@ -32,10 +32,12 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CardSearch = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.MultiverseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardNameExpansion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardSearchBox = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -71,23 +73,48 @@
             this.preferencesToolStripMenuItem.Text = "Settings";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
-            // CardSearch
+            // dataGridView
             // 
-            this.CardSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardSearch.FormattingEnabled = true;
-            this.CardSearch.Location = new System.Drawing.Point(12, 37);
-            this.CardSearch.Name = "CardSearch";
-            this.CardSearch.Size = new System.Drawing.Size(378, 28);
-            this.CardSearch.TabIndex = 1;
-            this.CardSearch.TextUpdate += new System.EventHandler(this.CardSearch_TextUpdate);
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.ColumnHeadersVisible = false;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MultiverseID,
+            this.CardNameExpansion});
+            this.dataGridView.Location = new System.Drawing.Point(12, 77);
+            this.dataGridView.MultiSelect = false;
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.RowHeadersVisible = false;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView.Size = new System.Drawing.Size(378, 424);
+            this.dataGridView.TabIndex = 2;
             // 
-            // dataGridView1
+            // MultiverseID
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(448, 77);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(378, 424);
-            this.dataGridView1.TabIndex = 2;
+            this.MultiverseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.MultiverseID.HeaderText = "ID";
+            this.MultiverseID.Name = "MultiverseID";
+            this.MultiverseID.ReadOnly = true;
+            this.MultiverseID.Width = 5;
+            // 
+            // CardNameExpansion
+            // 
+            this.CardNameExpansion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.CardNameExpansion.HeaderText = "Name";
+            this.CardNameExpansion.Name = "CardNameExpansion";
+            this.CardNameExpansion.ReadOnly = true;
+            this.CardNameExpansion.Width = 5;
+            // 
+            // CardSearchBox
+            // 
+            this.CardSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardSearchBox.Location = new System.Drawing.Point(12, 43);
+            this.CardSearchBox.Name = "CardSearchBox";
+            this.CardSearchBox.Size = new System.Drawing.Size(378, 26);
+            this.CardSearchBox.TabIndex = 3;
+            this.CardSearchBox.TextChanged += new System.EventHandler(this.CardSearchBox_TextChanged);
             // 
             // MainWindow
             // 
@@ -95,14 +122,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(838, 513);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.CardSearch);
+            this.Controls.Add(this.CardSearchBox);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainWindow";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,8 +141,10 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
-        private System.Windows.Forms.ComboBox CardSearch;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.TextBox CardSearchBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MultiverseID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CardNameExpansion;
     }
 }
 
