@@ -79,6 +79,7 @@
             this.CardSearch.Name = "CardSearch";
             this.CardSearch.Size = new System.Drawing.Size(378, 28);
             this.CardSearch.TabIndex = 1;
+            this.CardSearch.TextUpdate += new System.EventHandler(this.CardSearch_TextUpdate);
             // 
             // dataGridView1
             // 

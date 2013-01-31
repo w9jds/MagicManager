@@ -21,6 +21,7 @@ namespace MagicManager
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.DatabaseLocation = DatabasePath.Text;
+            Properties.Settings.Default.Save();
             this.Close();
         }
 
