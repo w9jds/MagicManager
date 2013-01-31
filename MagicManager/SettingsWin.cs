@@ -15,6 +15,33 @@ namespace MagicManager
         public SettingsWin()
         {
             InitializeComponent();
+            DatabasePath.Text = Properties.Settings.Default.DatabaseLocation;
         }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.DatabaseLocation = DatabasePath.Text;
+            this.Close();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog.ShowDialog();
+        }
+
+        private void OpenFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            if ((OpenFileDialog.CheckFileExists == true) && (OpenFileDialog.CheckPathExists == true))
+            {
+                string database = OpenFileDialog.FileName;
+                DatabasePath.Text = database;
+            }
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

@@ -17,5 +17,10 @@ namespace MagicManager
             InitializeComponent();
         }
 
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsWin setSettings = new SettingsWin();
+            setSettings.Show();
+        }
     }
 }
