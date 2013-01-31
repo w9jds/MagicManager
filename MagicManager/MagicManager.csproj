@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CardWin.Designer.cs">
+      <DependentUpon>CardWin.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,9 @@
     <Compile Include="SettingsWin.Designer.cs">
       <DependentUpon>SettingsWin.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CardWin.resx">
+      <DependentUpon>CardWin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>

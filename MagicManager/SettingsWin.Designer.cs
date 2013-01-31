@@ -102,6 +102,7 @@
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.DatabasePath);
             this.Controls.Add(this.DatabaseLocLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "SettingsWin";
             this.ResumeLayout(false);
             this.PerformLayout();

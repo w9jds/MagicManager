@@ -41,6 +41,11 @@ namespace MagicManager
                     CardImgURL.Add(CardDT.Rows[i]["ImgURL"].ToString());
                 }
 
+                for (int i = 0; i < CardName.Count; i++)
+                {
+                    SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]");
+                }
+
             }
             catch(Exception){  }
         }
@@ -53,14 +58,27 @@ namespace MagicManager
 
         private void CardSearchBox_TextChanged(object sender, EventArgs e)
         {
-            dataGridView.Rows.Clear();
+            SearchResultsView.Rows.Clear();
             for (int i = 0; i < CardName.Count; i++)
             {
                 if (CardName[i].IndexOf(CardSearchBox.Text) == 0)
                 {
-                    dataGridView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]");
+                    SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]");
                 }
             }
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchResultsView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int multiverseid = Convert.ToInt32(SearchResultsView.Rows[e.RowIndex].Cells["MultiverseID"].Value.ToString());
+
+            CardWin Card = new CardWin(multiverseid);
+            Card.Show();
         }
     }
 }

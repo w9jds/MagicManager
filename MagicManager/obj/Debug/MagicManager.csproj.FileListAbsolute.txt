@@ -9,3 +9,4 @@ C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.c
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.exe
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.pdb
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.SettingsWin.resources
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.CardWin.resources
