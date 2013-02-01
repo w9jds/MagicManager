@@ -27,7 +27,7 @@ namespace MagicManager
                 OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.DatabaseLocation);
                 DBCon.Open();
 
-                OleDbDataAdapter CardDA = new OleDbDataAdapter("SELECT MultiverseID, Name, Expansion, ImgURL FROM Cards", DBCon);
+                OleDbDataAdapter CardDA = new OleDbDataAdapter("SELECT MultiverseID, Name, Expansion FROM Cards", DBCon);
                 DataSet CardDS = new DataSet();
                 CardDA.Fill(CardDS);
                 DataTable CardDT = CardDS.Tables[0];
@@ -38,7 +38,7 @@ namespace MagicManager
                     CardMultiverseID.Add(Convert.ToInt32(CardDT.Rows[i]["MultiverseID"].ToString()));
                     CardName.Add(CardDT.Rows[i]["Name"].ToString());
                     CardExpansion.Add(CardDT.Rows[i]["Expansion"].ToString());
-                    CardImgURL.Add(CardDT.Rows[i]["ImgURL"].ToString());
+                    //CardImgURL.Add(CardDT.Rows[i]["ImgURL"].ToString());
                 }
 
                 for (int i = 0; i < CardName.Count; i++)
@@ -76,7 +76,6 @@ namespace MagicManager
         private void SearchResultsView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int multiverseid = Convert.ToInt32(SearchResultsView.Rows[e.RowIndex].Cells["MultiverseID"].Value.ToString());
-
             CardWin Card = new CardWin(multiverseid);
             Card.Show();
         }
