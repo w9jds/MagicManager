@@ -13,9 +13,11 @@ namespace MagicManager
 {
     public partial class CardWin : Form
     {
+        private int CardMultiverseID = 0;
+
         public CardWin(int multiverseid)
         {
-            int CardMultiverseID = 0;
+            
             string[] Card = new string[10];
 
             InitializeComponent();
@@ -52,6 +54,17 @@ namespace MagicManager
             Expansion.Text = Card[7];
             Rarity.Text = Card[8];
             CardPic.Load(Card[9]);
+
+        }
+
+        private void ViewLegalityBtn_Click(object sender, EventArgs e)
+        {
+            LegalityWin CardsLegality = new LegalityWin(CardMultiverseID);
+            CardsLegality.Show();
+        }
+
+        private void ViewCostBtn_Click(object sender, EventArgs e)
+        {
 
         }
     }

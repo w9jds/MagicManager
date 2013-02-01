@@ -61,9 +61,9 @@ namespace MagicManager
             SearchResultsView.Rows.Clear();
             for (int i = 0; i < CardName.Count; i++)
             {
-                if (CardName[i].IndexOf(CardSearchBox.Text) == 0)
+                if (CardName[i].IndexOf(CardSearchBox.Text, StringComparison.OrdinalIgnoreCase) == 0)
                 {
-                    SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]");
+                    SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
                 }
             }
         }
@@ -78,6 +78,11 @@ namespace MagicManager
             int multiverseid = Convert.ToInt32(SearchResultsView.Rows[e.RowIndex].Cells["MultiverseID"].Value.ToString());
             CardWin Card = new CardWin(multiverseid);
             Card.Show();
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

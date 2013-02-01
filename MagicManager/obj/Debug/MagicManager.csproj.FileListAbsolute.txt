@@ -10,3 +10,5 @@ C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.e
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.pdb
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.SettingsWin.resources
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.CardWin.resources
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.AddForm.resources
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.LegalityWin.resources

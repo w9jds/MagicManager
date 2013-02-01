@@ -32,7 +32,7 @@
             this.DatabasePath = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelBtn = new System.Windows.Forms.Button();
             this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
@@ -76,15 +76,15 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // CancelButton
+            // CancelBtn
             // 
-            this.CancelButton.Location = new System.Drawing.Point(299, 189);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 4;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.CancelBtn.Location = new System.Drawing.Point(299, 189);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.CancelBtn.TabIndex = 4;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // OpenFileDialog
             // 
@@ -97,7 +97,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(500, 224);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.DatabasePath);
@@ -115,7 +115,7 @@
         private System.Windows.Forms.TextBox DatabasePath;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.OpenFileDialog OpenFileDialog;
     }
 }
