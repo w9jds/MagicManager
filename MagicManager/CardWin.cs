@@ -14,31 +14,17 @@ namespace MagicManager
     public partial class CardWin : Form
     {
         private int CardMultiverseID = 0;
+        private MainWindow MainWin;
 
-        public CardWin(int multiverseid)
+        public CardWin(int multiverseid, Form MainWinIn)
         {
             
             string[] Card = new string[10];
-
+            MainWin = MainWinIn as MainWindow;
             InitializeComponent();
-            OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.DatabaseLocation);
-            DBCon.Open();
+            Card = MainWin.GetCardInfo(multiverseid);
 
-            OleDbDataAdapter CardDA = new OleDbDataAdapter("SELECT * FROM Cards WHERE MultiverseID = '" + multiverseid + "'", DBCon);
-            DataSet CardDS = new DataSet();
-            CardDA.Fill(CardDS);
-            DataTable CardDT = CardDS.Tables[0];
-            DBCon.Close();
-
-            for (int i = 0; i < CardDT.Rows.Count; i++)
-            {
-                CardMultiverseID = Convert.ToInt32(CardDT.Rows[i]["MultiverseID"].ToString());
-                for (int j = 0; j < CardDT.Columns.Count; j++)
-                {
-                    Card[j] = CardDT.Rows[i][j].ToString();
-                }
-            }
-            
+            CardMultiverseID = Convert.ToInt32(Card[0]);
             CardName.Text = Card[1];
             if (Card[2] != "")
                 ConvMana.Text = "Converted Mana Cost: " + Card[2];

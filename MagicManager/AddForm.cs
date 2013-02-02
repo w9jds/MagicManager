@@ -14,28 +14,18 @@ namespace MagicManager
     public partial class AddForm : Form
     {
         private MainWindow MainWin = null;
-        private string CName = null;
-        private string CExpansion = null;
+        private string[] Card = new string[10];
         private int multiverseID = 0;
 
         public AddForm(int multiverseid, Form MainWinIn)
         {
             MainWin = MainWinIn as MainWindow;
             InitializeComponent();
-            OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.DatabaseLocation);
-            DBCon.Open();
-
-            OleDbDataAdapter CardDA = new OleDbDataAdapter("SELECT Name, Expansion FROM Cards WHERE MultiverseID = '" + multiverseid + "'", DBCon);
-            DataSet CardDS = new DataSet();
-            CardDA.Fill(CardDS);
-            DataTable CardDT = CardDS.Tables[0];
-            DBCon.Close();
+            Card = MainWin.GetCardInfo(multiverseid);
 
             multiverseID = multiverseid;
-            CName = CardDT.Rows[0]["Name"].ToString();
-            CExpansion = CardDT.Rows[0]["Expansion"].ToString();
-            CardName.Text = CName;
-            CardExpansion.Text = CExpansion;
+            CardName.Text = Card[1];
+            CardExpansion.Text = Card[7];
         }
 
         private void NormMulti_KeyPress(object sender, KeyPressEventArgs e)
@@ -50,7 +40,18 @@ namespace MagicManager
 
         private void FoilCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (FoilCombo.SelectedIndex == 0)
+            {
+                AmountFoilLabel.Visible = false;
+                FoilAmount.Text = "";
+                FoilAmount.Visible = false;
+            }
+            else if (FoilCombo.SelectedIndex == 1)
+            {
+                AmountFoilLabel.Visible = true;
+                FoilAmount.Text = "";
+                FoilAmount.Visible = true;
+            }
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
@@ -59,10 +60,12 @@ namespace MagicManager
             {
                 int stdAmount = Convert.ToInt32(NormMulti.Text) - Convert.ToInt32(FoilAmount.Text);
                 int FAmount = Convert.ToInt32(FoilAmount.Text);
-                MainWin.MyCards.Rows.Add(multiverseID, CName, CExpansion, stdAmount, FAmount);
+                MainWin.AddOwnedCard(Card, stdAmount, FAmount);
+                //MainWin.MyCards.Rows.Add(multiverseID, CName, CExpansion, stdAmount, FAmount);
             }
             else
-                MainWin.MyCards.Rows.Add(multiverseID, CName, CExpansion, Convert.ToInt32(NormMulti.Text), 0);
+                MainWin.AddOwnedCard(Card, Convert.ToInt32(NormMulti.Text), 0);
+                //MainWin.MyCards.Rows.Add(multiverseID, CName, CExpansion, Convert.ToInt32(NormMulti.Text), 0);
             this.Close();
         }
 

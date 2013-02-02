@@ -336,12 +336,12 @@
         private System.Windows.Forms.ToolStripMenuItem ownedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wantToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bothToolStripMenuItem;
-        public System.Windows.Forms.DataGridView MyCards;
         private System.Windows.Forms.DataGridViewTextBoxColumn MultiverseID1;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameCard;
         private System.Windows.Forms.DataGridViewTextBoxColumn Expan;
         private System.Windows.Forms.DataGridViewTextBoxColumn StdOwned;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoilOwned;
+        private System.Windows.Forms.DataGridView MyCards;
     }
 }
 

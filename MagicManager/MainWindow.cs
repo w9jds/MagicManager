@@ -77,14 +77,14 @@ namespace MagicManager
         private void SearchResultsView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int multiverseid = Convert.ToInt32(SearchResultsView.Rows[e.RowIndex].Cells["MultiverseID"].Value.ToString());
-            CardWin Card = new CardWin(multiverseid);
+            CardWin Card = new CardWin(multiverseid, this);
             Card.Show();
         }
         
         private void MyCards_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int multiverseid = Convert.ToInt32(MyCards.Rows[e.RowIndex].Cells["MultiverseID1"].Value.ToString());
-            CardWin Card = new CardWin(multiverseid);
+            CardWin Card = new CardWin(multiverseid, this);
             Card.Show();
         }
         
@@ -95,6 +95,34 @@ namespace MagicManager
             AddForm AddCardForm = new AddForm(multiverseid, this);
             AddCardForm.Show();
             
+        }
+
+        public void AddOwnedCard(string[] Card, int stdOwned, int foilOwned)
+        {
+            MyCards.Rows.Add(Card[0], Card[1], Card[7], stdOwned, foilOwned);
+        }
+
+        public string[] GetCardInfo(int multiverseid)
+        {
+            string[] Card = new string[10];
+
+            OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.DatabaseLocation);
+            DBCon.Open();
+
+            OleDbDataAdapter CardDA = new OleDbDataAdapter("SELECT * FROM Cards WHERE MultiverseID = '" + multiverseid + "'", DBCon);
+            DataSet CardDS = new DataSet();
+            CardDA.Fill(CardDS);
+            DataTable CardDT = CardDS.Tables[0];
+            DBCon.Close();
+
+            for (int i = 0; i < CardDT.Rows.Count; i++)
+            {
+                for (int j = 0; j < CardDT.Columns.Count; j++)
+                {
+                    Card[j] = CardDT.Rows[i][j].ToString();
+                }
+            }
+            return Card;
         }
 
 
