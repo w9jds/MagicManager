@@ -6,6 +6,7 @@ using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -79,13 +80,23 @@ namespace MagicManager
             CardWin Card = new CardWin(multiverseid);
             Card.Show();
         }
-
+        
+        private void MyCards_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int multiverseid = Convert.ToInt32(MyCards.Rows[e.RowIndex].Cells["MultiverseID1"].Value.ToString());
+            CardWin Card = new CardWin(multiverseid);
+            Card.Show();
+        }
+        
         private void AddBtn_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = SearchResultsView.SelectedRows[0];
             int multiverseid = Convert.ToInt32(SearchResultsView.Rows[row.Index].Cells["MultiverseID"].Value.ToString());
-            AddForm AddCardForm = new AddForm(multiverseid);
+            AddForm AddCardForm = new AddForm(multiverseid, this);
             AddCardForm.Show();
+            
         }
+
+
     }
 }

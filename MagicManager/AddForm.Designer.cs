@@ -33,9 +33,11 @@
             this.NormMulti = new System.Windows.Forms.TextBox();
             this.CardExpansion = new System.Windows.Forms.TextBox();
             this.FoilCombo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.FoilLabel = new System.Windows.Forms.Label();
             this.AddBtn = new System.Windows.Forms.Button();
             this.CancelBtn = new System.Windows.Forms.Button();
+            this.AmountFoilLabel = new System.Windows.Forms.Label();
+            this.FoilAmount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // CardName
@@ -102,17 +104,18 @@
             this.FoilCombo.Name = "FoilCombo";
             this.FoilCombo.Size = new System.Drawing.Size(100, 21);
             this.FoilCombo.TabIndex = 5;
+            this.FoilCombo.SelectedIndexChanged += new System.EventHandler(this.FoilCombo_SelectedIndexChanged);
             // 
-            // label1
+            // FoilLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(185, 139);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Are any of them Foil?";
+            this.FoilLabel.AutoSize = true;
+            this.FoilLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FoilLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.FoilLabel.Location = new System.Drawing.Point(185, 139);
+            this.FoilLabel.Name = "FoilLabel";
+            this.FoilLabel.Size = new System.Drawing.Size(142, 17);
+            this.FoilLabel.TabIndex = 6;
+            this.FoilLabel.Text = "Are any of them Foil?";
             // 
             // AddBtn
             // 
@@ -125,6 +128,7 @@
             this.AddBtn.TabIndex = 7;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // CancelBtn
             // 
@@ -137,6 +141,30 @@
             this.CancelBtn.TabIndex = 8;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // AmountFoilLabel
+            // 
+            this.AmountFoilLabel.AutoSize = true;
+            this.AmountFoilLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AmountFoilLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AmountFoilLabel.Location = new System.Drawing.Point(216, 183);
+            this.AmountFoilLabel.Name = "AmountFoilLabel";
+            this.AmountFoilLabel.Size = new System.Drawing.Size(81, 17);
+            this.AmountFoilLabel.TabIndex = 9;
+            this.AmountFoilLabel.Text = "How Many?";
+            this.AmountFoilLabel.Visible = false;
+            // 
+            // FoilAmount
+            // 
+            this.FoilAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FoilAmount.Location = new System.Drawing.Point(206, 203);
+            this.FoilAmount.Name = "FoilAmount";
+            this.FoilAmount.Size = new System.Drawing.Size(100, 20);
+            this.FoilAmount.TabIndex = 10;
+            this.FoilAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FoilAmount.Visible = false;
+            this.FoilAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FoilAmount_KeyPress);
             // 
             // AddForm
             // 
@@ -144,9 +172,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(513, 337);
+            this.Controls.Add(this.FoilAmount);
+            this.Controls.Add(this.AmountFoilLabel);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.AddBtn);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.FoilLabel);
             this.Controls.Add(this.FoilCombo);
             this.Controls.Add(this.CardExpansion);
             this.Controls.Add(this.NormMulti);
@@ -166,8 +196,10 @@
         private System.Windows.Forms.TextBox NormMulti;
         private System.Windows.Forms.TextBox CardExpansion;
         private System.Windows.Forms.ComboBox FoilCombo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label FoilLabel;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Button CancelBtn;
+        private System.Windows.Forms.Label AmountFoilLabel;
+        private System.Windows.Forms.TextBox FoilAmount;
     }
 }

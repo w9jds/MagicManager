@@ -31,22 +31,25 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.SearchResultsView = new System.Windows.Forms.DataGridView();
-            this.CardSearchBox = new System.Windows.Forms.TextBox();
-            this.MyCards = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MyWantCards = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddBtn = new System.Windows.Forms.Button();
-            this.MultiverseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CardNameExpansion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ownedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bothToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SearchResultsView = new System.Windows.Forms.DataGridView();
+            this.MultiverseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardNameExpansion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardSearchBox = new System.Windows.Forms.TextBox();
+            this.MyCards = new System.Windows.Forms.DataGridView();
+            this.MyWantCards = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.MultiverseID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Expan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StdOwned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FoilOwned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).BeginInit();
@@ -77,13 +80,41 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.newToolStripMenuItem.Text = "New";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ownedToolStripMenuItem,
+            this.wantToolStripMenuItem,
+            this.bothToolStripMenuItem});
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // ownedToolStripMenuItem
+            // 
+            this.ownedToolStripMenuItem.Name = "ownedToolStripMenuItem";
+            this.ownedToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.ownedToolStripMenuItem.Text = "Owned";
+            // 
+            // wantToolStripMenuItem
+            // 
+            this.wantToolStripMenuItem.Name = "wantToolStripMenuItem";
+            this.wantToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.wantToolStripMenuItem.Text = "Want";
+            // 
+            // bothToolStripMenuItem
+            // 
+            this.bothToolStripMenuItem.Name = "bothToolStripMenuItem";
+            this.bothToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.bothToolStripMenuItem.Text = "Both";
             // 
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.preferencesToolStripMenuItem.Text = "Settings";
             this.preferencesToolStripMenuItem.Click += new System.EventHandler(this.preferencesToolStripMenuItem_Click);
             // 
@@ -115,6 +146,22 @@
             this.SearchResultsView.TabIndex = 2;
             this.SearchResultsView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SearchResultsView_CellDoubleClick);
             // 
+            // MultiverseID
+            // 
+            this.MultiverseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.MultiverseID.HeaderText = "ID";
+            this.MultiverseID.Name = "MultiverseID";
+            this.MultiverseID.ReadOnly = true;
+            this.MultiverseID.Visible = false;
+            // 
+            // CardNameExpansion
+            // 
+            this.CardNameExpansion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CardNameExpansion.HeaderText = "Name";
+            this.CardNameExpansion.Name = "CardNameExpansion";
+            this.CardNameExpansion.ReadOnly = true;
+            this.CardNameExpansion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // CardSearchBox
             // 
             this.CardSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,32 +180,26 @@
             this.MyCards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MyCards.ColumnHeadersVisible = false;
             this.MyCards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
+            this.MultiverseID1,
+            this.NameCard,
+            this.Expan,
+            this.StdOwned,
+            this.FoilOwned});
             this.MyCards.Location = new System.Drawing.Point(448, 77);
             this.MyCards.MultiSelect = false;
             this.MyCards.Name = "MyCards";
             this.MyCards.ReadOnly = true;
             this.MyCards.RowHeadersVisible = false;
+            this.MyCards.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MyCards.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.MyCards.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MyCards.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.MyCards.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.MyCards.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.MyCards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.MyCards.Size = new System.Drawing.Size(378, 205);
             this.MyCards.TabIndex = 4;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 5;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.MyCards.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MyCards_CellDoubleClick);
             // 
             // MyWantCards
             // 
@@ -206,50 +247,50 @@
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
-            // MultiverseID
+            // MultiverseID1
             // 
-            this.MultiverseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.MultiverseID.HeaderText = "ID";
-            this.MultiverseID.Name = "MultiverseID";
-            this.MultiverseID.ReadOnly = true;
-            this.MultiverseID.Visible = false;
-            this.MultiverseID.Width = 5;
+            this.MultiverseID1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.MultiverseID1.HeaderText = "ID";
+            this.MultiverseID1.Name = "MultiverseID1";
+            this.MultiverseID1.ReadOnly = true;
+            this.MultiverseID1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.MultiverseID1.Visible = false;
+            this.MultiverseID1.Width = 5;
             // 
-            // CardNameExpansion
+            // NameCard
             // 
-            this.CardNameExpansion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CardNameExpansion.HeaderText = "Name";
-            this.CardNameExpansion.Name = "CardNameExpansion";
-            this.CardNameExpansion.ReadOnly = true;
-            this.CardNameExpansion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NameCard.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.NameCard.HeaderText = "Name";
+            this.NameCard.Name = "NameCard";
+            this.NameCard.ReadOnly = true;
+            this.NameCard.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NameCard.Width = 5;
             // 
-            // saveToolStripMenuItem
+            // Expan
             // 
-            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ownedToolStripMenuItem,
-            this.wantToolStripMenuItem,
-            this.bothToolStripMenuItem});
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.Expan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Expan.HeaderText = "Expansion";
+            this.Expan.Name = "Expan";
+            this.Expan.ReadOnly = true;
+            this.Expan.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Expan.Width = 5;
             // 
-            // ownedToolStripMenuItem
+            // StdOwned
             // 
-            this.ownedToolStripMenuItem.Name = "ownedToolStripMenuItem";
-            this.ownedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ownedToolStripMenuItem.Text = "Owned";
+            this.StdOwned.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.StdOwned.HeaderText = "Standard";
+            this.StdOwned.Name = "StdOwned";
+            this.StdOwned.ReadOnly = true;
+            this.StdOwned.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.StdOwned.Width = 5;
             // 
-            // wantToolStripMenuItem
+            // FoilOwned
             // 
-            this.wantToolStripMenuItem.Name = "wantToolStripMenuItem";
-            this.wantToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.wantToolStripMenuItem.Text = "Want";
-            // 
-            // bothToolStripMenuItem
-            // 
-            this.bothToolStripMenuItem.Name = "bothToolStripMenuItem";
-            this.bothToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.bothToolStripMenuItem.Text = "Both";
+            this.FoilOwned.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.FoilOwned.HeaderText = "Foils";
+            this.FoilOwned.Name = "FoilOwned";
+            this.FoilOwned.ReadOnly = true;
+            this.FoilOwned.Width = 5;
             // 
             // MainWindow
             // 
@@ -285,9 +326,6 @@
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
         private System.Windows.Forms.DataGridView SearchResultsView;
         private System.Windows.Forms.TextBox CardSearchBox;
-        private System.Windows.Forms.DataGridView MyCards;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridView MyWantCards;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -298,6 +336,12 @@
         private System.Windows.Forms.ToolStripMenuItem ownedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wantToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bothToolStripMenuItem;
+        public System.Windows.Forms.DataGridView MyCards;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MultiverseID1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameCard;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Expan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StdOwned;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FoilOwned;
     }
 }
 
