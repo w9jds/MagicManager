@@ -43,6 +43,10 @@
             this.AddBtn = new System.Windows.Forms.Button();
             this.MultiverseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardNameExpansion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ownedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bothToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).BeginInit();
@@ -64,6 +68,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
+            this.saveToolStripMenuItem,
             this.preferencesToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -218,6 +223,34 @@
             this.CardNameExpansion.ReadOnly = true;
             this.CardNameExpansion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ownedToolStripMenuItem,
+            this.wantToolStripMenuItem,
+            this.bothToolStripMenuItem});
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // ownedToolStripMenuItem
+            // 
+            this.ownedToolStripMenuItem.Name = "ownedToolStripMenuItem";
+            this.ownedToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ownedToolStripMenuItem.Text = "Owned";
+            // 
+            // wantToolStripMenuItem
+            // 
+            this.wantToolStripMenuItem.Name = "wantToolStripMenuItem";
+            this.wantToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.wantToolStripMenuItem.Text = "Want";
+            // 
+            // bothToolStripMenuItem
+            // 
+            this.bothToolStripMenuItem.Name = "bothToolStripMenuItem";
+            this.bothToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bothToolStripMenuItem.Text = "Both";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,6 +294,10 @@
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn MultiverseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardNameExpansion;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ownedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wantToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bothToolStripMenuItem;
     }
 }
 

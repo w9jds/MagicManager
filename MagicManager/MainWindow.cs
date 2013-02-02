@@ -82,7 +82,10 @@ namespace MagicManager
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-
+            DataGridViewRow row = SearchResultsView.SelectedRows[0];
+            int multiverseid = Convert.ToInt32(SearchResultsView.Rows[row.Index].Cells["MultiverseID"].Value.ToString());
+            AddForm AddCardForm = new AddForm(multiverseid);
+            AddCardForm.Show();
         }
     }
 }
