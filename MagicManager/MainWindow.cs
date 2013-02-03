@@ -48,10 +48,7 @@ namespace MagicManager
                 }
 
                 for (int i = 0; i < CardName.Count; i++)
-                {
                     SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]");
-                }
-
             }
             catch (Exception) { }
         }
@@ -126,23 +123,17 @@ namespace MagicManager
                 if (NameCheck.Checked == true && ExpanCheck.Checked == false)
                 {
                     if (CardName[i].IndexOf(CardSearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
-                    {
                         SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
-                    }
                 }
                 if (NameCheck.Checked == false && ExpanCheck.Checked == true)
                 {
                     if (CardExpansion[i].IndexOf(ExpansionBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
-                    {
                         SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
-                    }
                 }
                 if (NameCheck.Checked == true && ExpanCheck.Checked == true)
                 {
                     if (CardName[i].IndexOf(CardSearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1 && CardExpansion[i].IndexOf(ExpansionBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
-                    {
                         SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
-                    }
                 }
             }
         }
