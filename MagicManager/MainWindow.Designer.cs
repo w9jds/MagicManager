@@ -31,29 +31,32 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ownedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bothToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SearchResultsView = new System.Windows.Forms.DataGridView();
             this.MultiverseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardNameExpansion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardSearchBox = new System.Windows.Forms.TextBox();
             this.MyCards = new System.Windows.Forms.DataGridView();
-            this.MyWantCards = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddBtn = new System.Windows.Forms.Button();
             this.MultiverseID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Expan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StdOwned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FoilOwned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.SearchBtn = new System.Windows.Forms.Button();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.ExpansionBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ExpanCheck = new System.Windows.Forms.CheckBox();
+            this.NameCheck = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.RarityCheck = new System.Windows.Forms.CheckBox();
+            this.RarityLabel = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MyWantCards)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -63,7 +66,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(838, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1017, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -79,37 +82,23 @@
             // 
             // newToolStripMenuItem
             // 
+            this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deckToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
+            // deckToolStripMenuItem
+            // 
+            this.deckToolStripMenuItem.Name = "deckToolStripMenuItem";
+            this.deckToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.deckToolStripMenuItem.Text = "Deck";
+            // 
             // saveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ownedToolStripMenuItem,
-            this.wantToolStripMenuItem,
-            this.bothToolStripMenuItem});
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // ownedToolStripMenuItem
-            // 
-            this.ownedToolStripMenuItem.Name = "ownedToolStripMenuItem";
-            this.ownedToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.ownedToolStripMenuItem.Text = "Owned";
-            // 
-            // wantToolStripMenuItem
-            // 
-            this.wantToolStripMenuItem.Name = "wantToolStripMenuItem";
-            this.wantToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.wantToolStripMenuItem.Text = "Want";
-            // 
-            // bothToolStripMenuItem
-            // 
-            this.bothToolStripMenuItem.Name = "bothToolStripMenuItem";
-            this.bothToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.bothToolStripMenuItem.Text = "Both";
             // 
             // preferencesToolStripMenuItem
             // 
@@ -130,7 +119,7 @@
             this.SearchResultsView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MultiverseID,
             this.CardNameExpansion});
-            this.SearchResultsView.Location = new System.Drawing.Point(12, 77);
+            this.SearchResultsView.Location = new System.Drawing.Point(333, 75);
             this.SearchResultsView.MultiSelect = false;
             this.SearchResultsView.Name = "SearchResultsView";
             this.SearchResultsView.ReadOnly = true;
@@ -142,7 +131,7 @@
             this.SearchResultsView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SearchResultsView.ShowEditingIcon = false;
             this.SearchResultsView.ShowRowErrors = false;
-            this.SearchResultsView.Size = new System.Drawing.Size(378, 424);
+            this.SearchResultsView.Size = new System.Drawing.Size(307, 426);
             this.SearchResultsView.TabIndex = 2;
             this.SearchResultsView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SearchResultsView_CellDoubleClick);
             // 
@@ -165,9 +154,9 @@
             // CardSearchBox
             // 
             this.CardSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardSearchBox.Location = new System.Drawing.Point(12, 43);
+            this.CardSearchBox.Location = new System.Drawing.Point(34, 75);
             this.CardSearchBox.Name = "CardSearchBox";
-            this.CardSearchBox.Size = new System.Drawing.Size(378, 26);
+            this.CardSearchBox.Size = new System.Drawing.Size(285, 26);
             this.CardSearchBox.TabIndex = 3;
             this.CardSearchBox.TextChanged += new System.EventHandler(this.CardSearchBox_TextChanged);
             // 
@@ -185,7 +174,7 @@
             this.Expan,
             this.StdOwned,
             this.FoilOwned});
-            this.MyCards.Location = new System.Drawing.Point(448, 77);
+            this.MyCards.Location = new System.Drawing.Point(698, 75);
             this.MyCards.MultiSelect = false;
             this.MyCards.Name = "MyCards";
             this.MyCards.ReadOnly = true;
@@ -197,55 +186,9 @@
             this.MyCards.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.MyCards.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.MyCards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MyCards.Size = new System.Drawing.Size(378, 205);
+            this.MyCards.Size = new System.Drawing.Size(307, 426);
             this.MyCards.TabIndex = 4;
             this.MyCards.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MyCards_CellDoubleClick);
-            // 
-            // MyWantCards
-            // 
-            this.MyWantCards.AllowUserToAddRows = false;
-            this.MyWantCards.AllowUserToDeleteRows = false;
-            this.MyWantCards.AllowUserToResizeColumns = false;
-            this.MyWantCards.AllowUserToResizeRows = false;
-            this.MyWantCards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MyWantCards.ColumnHeadersVisible = false;
-            this.MyWantCards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.MyWantCards.Location = new System.Drawing.Point(448, 298);
-            this.MyWantCards.MultiSelect = false;
-            this.MyWantCards.Name = "MyWantCards";
-            this.MyWantCards.ReadOnly = true;
-            this.MyWantCards.RowHeadersVisible = false;
-            this.MyWantCards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MyWantCards.Size = new System.Drawing.Size(378, 203);
-            this.MyWantCards.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewTextBoxColumn3.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 5;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddBtn.Location = new System.Drawing.Point(396, 177);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(46, 23);
-            this.AddBtn.TabIndex = 6;
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // MultiverseID1
             // 
@@ -255,7 +198,6 @@
             this.MultiverseID1.ReadOnly = true;
             this.MultiverseID1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.MultiverseID1.Visible = false;
-            this.MultiverseID1.Width = 5;
             // 
             // NameCard
             // 
@@ -292,14 +234,121 @@
             this.FoilOwned.ReadOnly = true;
             this.FoilOwned.Width = 5;
             // 
+            // AddBtn
+            // 
+            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddBtn.Location = new System.Drawing.Point(646, 261);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(46, 23);
+            this.AddBtn.TabIndex = 6;
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // SearchBtn
+            // 
+            this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SearchBtn.Location = new System.Drawing.Point(116, 451);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(75, 23);
+            this.SearchBtn.TabIndex = 7;
+            this.SearchBtn.Text = "Search";
+            this.SearchBtn.UseVisualStyleBackColor = true;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.NameLabel.Location = new System.Drawing.Point(9, 55);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(49, 17);
+            this.NameLabel.TabIndex = 8;
+            this.NameLabel.Text = "Name:";
+            // 
+            // ExpansionBox
+            // 
+            this.ExpansionBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExpansionBox.Location = new System.Drawing.Point(34, 140);
+            this.ExpansionBox.Name = "ExpansionBox";
+            this.ExpansionBox.Size = new System.Drawing.Size(285, 26);
+            this.ExpansionBox.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(9, 120);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 17);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Expansion:";
+            // 
+            // ExpanCheck
+            // 
+            this.ExpanCheck.AutoSize = true;
+            this.ExpanCheck.Location = new System.Drawing.Point(12, 146);
+            this.ExpanCheck.Name = "ExpanCheck";
+            this.ExpanCheck.Size = new System.Drawing.Size(15, 14);
+            this.ExpanCheck.TabIndex = 11;
+            this.ExpanCheck.UseVisualStyleBackColor = true;
+            // 
+            // NameCheck
+            // 
+            this.NameCheck.AutoSize = true;
+            this.NameCheck.Location = new System.Drawing.Point(12, 81);
+            this.NameCheck.Name = "NameCheck";
+            this.NameCheck.Size = new System.Drawing.Size(15, 14);
+            this.NameCheck.TabIndex = 12;
+            this.NameCheck.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(34, 374);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 13;
+            // 
+            // RarityCheck
+            // 
+            this.RarityCheck.AutoSize = true;
+            this.RarityCheck.Location = new System.Drawing.Point(12, 379);
+            this.RarityCheck.Name = "RarityCheck";
+            this.RarityCheck.Size = new System.Drawing.Size(15, 14);
+            this.RarityCheck.TabIndex = 14;
+            this.RarityCheck.UseVisualStyleBackColor = true;
+            // 
+            // RarityLabel
+            // 
+            this.RarityLabel.AutoSize = true;
+            this.RarityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RarityLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.RarityLabel.Location = new System.Drawing.Point(9, 354);
+            this.RarityLabel.Name = "RarityLabel";
+            this.RarityLabel.Size = new System.Drawing.Size(49, 17);
+            this.RarityLabel.TabIndex = 15;
+            this.RarityLabel.Text = "Rarity:";
+            this.RarityLabel.UseMnemonic = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(838, 513);
+            this.ClientSize = new System.Drawing.Size(1017, 513);
+            this.Controls.Add(this.RarityLabel);
+            this.Controls.Add(this.RarityCheck);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.NameCheck);
+            this.Controls.Add(this.ExpanCheck);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ExpansionBox);
+            this.Controls.Add(this.NameLabel);
+            this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.AddBtn);
-            this.Controls.Add(this.MyWantCards);
             this.Controls.Add(this.MyCards);
             this.Controls.Add(this.CardSearchBox);
             this.Controls.Add(this.SearchResultsView);
@@ -307,12 +356,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainWindow";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MyWantCards)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,22 +373,26 @@
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
         private System.Windows.Forms.DataGridView SearchResultsView;
         private System.Windows.Forms.TextBox CardSearchBox;
-        private System.Windows.Forms.DataGridView MyWantCards;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn MultiverseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardNameExpansion;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ownedToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wantToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bothToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn MultiverseID1;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameCard;
         private System.Windows.Forms.DataGridViewTextBoxColumn Expan;
         private System.Windows.Forms.DataGridViewTextBoxColumn StdOwned;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoilOwned;
         private System.Windows.Forms.DataGridView MyCards;
+        private System.Windows.Forms.ToolStripMenuItem deckToolStripMenuItem;
+        private System.Windows.Forms.Button SearchBtn;
+        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.TextBox ExpansionBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox ExpanCheck;
+        private System.Windows.Forms.CheckBox NameCheck;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox RarityCheck;
+        private System.Windows.Forms.Label RarityLabel;
     }
 }
 

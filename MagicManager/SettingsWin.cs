@@ -12,8 +12,11 @@ namespace MagicManager
 {
     public partial class SettingsWin : Form
     {
-        public SettingsWin()
+        MainWindow MainWin;
+
+        public SettingsWin(Form MainWinIn)
         {
+            MainWin = MainWinIn as MainWindow;
             InitializeComponent();
             DatabasePath.Text = Properties.Settings.Default.DatabaseLocation;
         }
@@ -22,6 +25,7 @@ namespace MagicManager
         {
             Properties.Settings.Default.DatabaseLocation = DatabasePath.Text;
             Properties.Settings.Default.Save();
+            MainWin.updateDB();
             this.Close();
         }
 

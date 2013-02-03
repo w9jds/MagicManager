@@ -14,15 +14,20 @@ namespace MagicManager
 {
     public partial class MainWindow : Form
     {
-        public List<int> CardMultiverseID = new List<int>();
-        public List<string> CardName = new List<string>();
-        public List<string> CardExpansion = new List<string>();
-        public List<string> CardImgURL = new List<string>();
+        private List<int> CardMultiverseID = new List<int>();
+        private List<string> CardName = new List<string>();
+        private List<string> CardExpansion = new List<string>();
+        private List<string> CardImgURL = new List<string>();
 
 
         public MainWindow()
         {
             InitializeComponent();
+            updateDB();
+        }
+
+        public void updateDB()
+        {
             try
             {
                 OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.DatabaseLocation);
@@ -48,28 +53,16 @@ namespace MagicManager
                 }
 
             }
-            catch(Exception){  }
+            catch (Exception) { }
         }
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SettingsWin setSettings = new SettingsWin();
+            SettingsWin setSettings = new SettingsWin(this);
             setSettings.Show();
         }
 
         private void CardSearchBox_TextChanged(object sender, EventArgs e)
-        {
-            SearchResultsView.Rows.Clear();
-            for (int i = 0; i < CardName.Count; i++)
-            {
-                if (CardName[i].IndexOf(CardSearchBox.Text, StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
-                }
-            }
-        }
-
-        private void MainWindow_Load(object sender, EventArgs e)
         {
 
         }
@@ -125,6 +118,33 @@ namespace MagicManager
             return Card;
         }
 
-
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+            SearchResultsView.Rows.Clear();
+            for (int i = 0; i < CardName.Count; i++)
+            {
+                if (NameCheck.Checked == true && ExpanCheck.Checked == false)
+                {
+                    if (CardName[i].IndexOf(CardSearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
+                    {
+                        SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
+                    }
+                }
+                if (NameCheck.Checked == false && ExpanCheck.Checked == true)
+                {
+                    if (CardExpansion[i].IndexOf(ExpansionBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
+                    {
+                        SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
+                    }
+                }
+                if (NameCheck.Checked == true && ExpanCheck.Checked == true)
+                {
+                    if (CardName[i].IndexOf(CardSearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1 && CardExpansion[i].IndexOf(ExpansionBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
+                    {
+                        SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
+                    }
+                }
+            }
+        }
     }
 }
