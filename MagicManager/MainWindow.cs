@@ -14,54 +14,28 @@ namespace MagicManager
 {
     public partial class MainWindow : Form
     {
-        private List<int> CardMultiverseID = new List<int>();
+        private List<string> CardMultiverseID = new List<string>();
         private List<string> CardName = new List<string>();
         private List<string> CardExpansion = new List<string>();
         private List<string> CardImgURL = new List<string>();
 
-
         public MainWindow()
-        {
+        {   
             InitializeComponent();
             updateDB();
         }
 
         public void updateDB()
         {
-            try
-            {
-                OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.DatabaseLocation);
-                DBCon.Open();
-
-                OleDbDataAdapter CardDA = new OleDbDataAdapter("SELECT MultiverseID, Name, Expansion FROM Cards", DBCon);
-                DataSet CardDS = new DataSet();
-                CardDA.Fill(CardDS);
-                DataTable CardDT = CardDS.Tables[0];
-                DBCon.Close();
-
-                for (int i = 0; i < CardDT.Rows.Count; i++)
-                {
-                    CardMultiverseID.Add(Convert.ToInt32(CardDT.Rows[i]["MultiverseID"].ToString()));
-                    CardName.Add(CardDT.Rows[i]["Name"].ToString());
-                    CardExpansion.Add(CardDT.Rows[i]["Expansion"].ToString());
-                    //CardImgURL.Add(CardDT.Rows[i]["ImgURL"].ToString());
-                }
-
-                for (int i = 0; i < CardName.Count; i++)
-                    SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]");
-            }
-            catch (Exception) { }
+            BGWorkerDB.RunWorkerAsync(this);
+            for (int i = 0; i < CardName.Count; i++)
+                SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]");
         }
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SettingsWin setSettings = new SettingsWin(this);
             setSettings.Show();
-        }
-
-        private void CardSearchBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void SearchResultsView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -136,6 +110,34 @@ namespace MagicManager
                         SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
                 }
             }
+        }
+
+        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            MainWindow MainWin = e.Argument as MainWindow;
+            
+            try
+            {
+                OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.DatabaseLocation);
+                DBCon.Open();
+
+                OleDbDataAdapter CardDA = new OleDbDataAdapter("SELECT MultiverseID, Name, Expansion FROM Cards", DBCon);
+                DataSet CardDS = new DataSet();
+                CardDA.Fill(CardDS);
+                DataTable CardDT = CardDS.Tables[0];
+                DBCon.Close();
+
+                for (int i = 0; i < CardDT.Rows.Count; i++)
+                {
+                    
+                    MainWin.CardMultiverseID.Add(CardDT.Rows[i]["MultiverseID"].ToString());
+                    MainWin.CardName.Add(CardDT.Rows[i]["Name"].ToString());
+                    MainWin.CardExpansion.Add(CardDT.Rows[i]["Expansion"].ToString());
+                    //CardImgURL.Add(CardDT.Rows[i]["ImgURL"].ToString());
+                }
+
+            }
+            catch (Exception) { }
         }
     }
 }

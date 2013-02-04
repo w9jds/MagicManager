@@ -54,6 +54,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.RarityCheck = new System.Windows.Forms.CheckBox();
             this.RarityLabel = new System.Windows.Forms.Label();
+            this.BGWorkerDB = new System.ComponentModel.BackgroundWorker();
+            this.BGWorkerFill = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).BeginInit();
@@ -158,7 +160,6 @@
             this.CardSearchBox.Name = "CardSearchBox";
             this.CardSearchBox.Size = new System.Drawing.Size(285, 26);
             this.CardSearchBox.TabIndex = 3;
-            this.CardSearchBox.TextChanged += new System.EventHandler(this.CardSearchBox_TextChanged);
             // 
             // MyCards
             // 
@@ -333,6 +334,10 @@
             this.RarityLabel.Text = "Rarity:";
             this.RarityLabel.UseMnemonic = false;
             // 
+            // BGWorkerDB
+            // 
+            this.BGWorkerDB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,6 +398,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.CheckBox RarityCheck;
         private System.Windows.Forms.Label RarityLabel;
+        private System.ComponentModel.BackgroundWorker BGWorkerDB;
+        private System.ComponentModel.BackgroundWorker BGWorkerFill;
     }
 }
 
