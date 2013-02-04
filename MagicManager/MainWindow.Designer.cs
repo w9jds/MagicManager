@@ -55,7 +55,6 @@
             this.RarityCheck = new System.Windows.Forms.CheckBox();
             this.RarityLabel = new System.Windows.Forms.Label();
             this.BGWorkerDB = new System.ComponentModel.BackgroundWorker();
-            this.BGWorkerFill = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).BeginInit();
@@ -399,7 +398,6 @@
         private System.Windows.Forms.CheckBox RarityCheck;
         private System.Windows.Forms.Label RarityLabel;
         private System.ComponentModel.BackgroundWorker BGWorkerDB;
-        private System.ComponentModel.BackgroundWorker BGWorkerFill;
     }
 }
 

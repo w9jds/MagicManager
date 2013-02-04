@@ -28,8 +28,6 @@ namespace MagicManager
         public void updateDB()
         {
             BGWorkerDB.RunWorkerAsync(this);
-            for (int i = 0; i < CardName.Count; i++)
-                SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]");
         }
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -128,16 +126,18 @@ namespace MagicManager
                 DBCon.Close();
 
                 for (int i = 0; i < CardDT.Rows.Count; i++)
-                {
-                    
+                {  
                     MainWin.CardMultiverseID.Add(CardDT.Rows[i]["MultiverseID"].ToString());
                     MainWin.CardName.Add(CardDT.Rows[i]["Name"].ToString());
                     MainWin.CardExpansion.Add(CardDT.Rows[i]["Expansion"].ToString());
                     //CardImgURL.Add(CardDT.Rows[i]["ImgURL"].ToString());
                 }
-
+                
+                SearchResultsView.Invoke((MethodInvoker)delegate{SearchResultsView.Rows.Clear();});
+                for (int i = 0; i < CardName.Count; i++)
+                    SearchResultsView.Invoke((MethodInvoker)delegate { SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]"); });
             }
-            catch (Exception) { }
+            catch (Exception) { }  
         }
     }
 }
