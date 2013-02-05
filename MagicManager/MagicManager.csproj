@@ -44,48 +44,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddForm.cs">
+    <Compile Include="Forms\AddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForm.Designer.cs">
+    <Compile Include="Forms\AddForm.Designer.cs">
       <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CardWin.cs">
+    <Compile Include="Forms\CardWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CardWin.Designer.cs">
+    <Compile Include="Forms\CardWin.Designer.cs">
       <DependentUpon>CardWin.cs</DependentUpon>
     </Compile>
-    <Compile Include="LegalityWin.cs">
+    <Compile Include="Forms\LegalityWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LegalityWin.Designer.cs">
+    <Compile Include="Forms\LegalityWin.Designer.cs">
       <DependentUpon>LegalityWin.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.cs">
+    <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindow.Designer.cs">
+    <Compile Include="Forms\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsWin.cs">
+    <Compile Include="Forms\SettingsWin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingsWin.Designer.cs">
+    <Compile Include="Forms\SettingsWin.Designer.cs">
       <DependentUpon>SettingsWin.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddForm.resx">
+    <EmbeddedResource Include="Forms\AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CardWin.resx">
+    <EmbeddedResource Include="Forms\CardWin.resx">
       <DependentUpon>CardWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LegalityWin.resx">
+    <EmbeddedResource Include="Forms\LegalityWin.resx">
       <DependentUpon>LegalityWin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
+    <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -97,7 +97,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SettingsWin.resx">
+    <EmbeddedResource Include="Forms\SettingsWin.resx">
       <DependentUpon>SettingsWin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
