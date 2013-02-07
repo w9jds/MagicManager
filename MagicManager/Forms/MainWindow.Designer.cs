@@ -57,6 +57,7 @@
             this.BGWorkerDB = new System.ComponentModel.BackgroundWorker();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.BGWorkerOwned = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).BeginInit();
@@ -344,7 +345,7 @@
             // 
             // BGWorkerDB
             // 
-            this.BGWorkerDB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
+            this.BGWorkerDB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGWorkerDB_DoWork);
             // 
             // StatusStrip
             // 
@@ -364,6 +365,10 @@
             this.toolStripProgressBar.Name = "toolStripProgressBar";
             this.toolStripProgressBar.Size = new System.Drawing.Size(100, 16);
             this.toolStripProgressBar.Visible = false;
+            // 
+            // BGWorkerOwned
+            // 
+            this.BGWorkerOwned.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGWorkerOwned_DoWork);
             // 
             // MainWindow
             // 
@@ -431,6 +436,7 @@
         private System.ComponentModel.BackgroundWorker BGWorkerDB;
         private System.Windows.Forms.StatusStrip StatusStrip;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
+        private System.ComponentModel.BackgroundWorker BGWorkerOwned;
     }
 }
 

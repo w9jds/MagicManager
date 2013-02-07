@@ -37,6 +37,7 @@
             this.Rarity = new System.Windows.Forms.TextBox();
             this.ViewLegalityBtn = new System.Windows.Forms.Button();
             this.ViewCostBtn = new System.Windows.Forms.Button();
+            this.CardInfoBGW = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.CardPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,6 +171,10 @@
             this.ViewCostBtn.UseVisualStyleBackColor = true;
             this.ViewCostBtn.Click += new System.EventHandler(this.ViewCostBtn_Click);
             // 
+            // CardInfoBGW
+            // 
+            this.CardInfoBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CardInfoBGW_DoWork);
+            // 
             // CardWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,5 +214,6 @@
         private System.Windows.Forms.TextBox Rarity;
         private System.Windows.Forms.Button ViewLegalityBtn;
         private System.Windows.Forms.Button ViewCostBtn;
+        private System.ComponentModel.BackgroundWorker CardInfoBGW;
     }
 }

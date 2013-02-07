@@ -1,14 +1,19 @@
 c:\users\jeremy\documents\visual studio 2012\Projects\MagicManager\MagicManager\bin\Debug\MagicManager.exe.config
-C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\MagicManager.exe.config
-C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\MagicManager.exe
-C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\MagicManager.pdb
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.csprojResolveAssemblyReference.cache
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.MainWindow.resources
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.Properties.Resources.resources
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.csproj.GenerateResource.Cache
-C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.exe
-C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.pdb
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.SettingsWin.resources
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.CardWin.resources
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.AddForm.resources
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.LegalityWin.resources
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\Magic Manager.exe.config
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\Magic Manager.exe.manifest
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\Magic Manager.application
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\Magic Manager.exe
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\bin\Debug\Magic Manager.pdb
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\Magic Manager.TrustInfo.xml
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\Magic Manager.exe.manifest
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\Magic Manager.application
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\Magic Manager.exe
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\Magic Manager.pdb

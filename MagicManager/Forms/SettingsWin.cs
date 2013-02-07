@@ -19,11 +19,13 @@ namespace MagicManager
             MainWin = MainWinIn as MainWindow;
             InitializeComponent();
             DatabasePath.Text = Properties.Settings.Default.DatabaseLocation;
+            MyDBPath.Text = Properties.Settings.Default.OwnedDatabase;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.DatabaseLocation = DatabasePath.Text;
+            Properties.Settings.Default.OwnedDatabase = MyDBPath.Text;
             Properties.Settings.Default.Save();
             MainWin.updateDB();
             this.Close();
@@ -37,10 +39,7 @@ namespace MagicManager
         private void OpenFileDialog_FileOk(object sender, CancelEventArgs e)
         {
             if ((OpenFileDialog.CheckFileExists == true) && (OpenFileDialog.CheckPathExists == true))
-            {
-                string database = OpenFileDialog.FileName;
-                DatabasePath.Text = database;
-            }
+                DatabasePath.Text = OpenFileDialog.FileName;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -48,5 +47,15 @@ namespace MagicManager
             this.Close();
         }
 
+        private void SearchButton1_Click(object sender, EventArgs e)
+        {
+            OpenMyFileDialog.ShowDialog();
+        }
+
+        private void OpenMyFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            if ((OpenMyFileDialog.CheckFileExists == true) && (OpenMyFileDialog.CheckPathExists == true))
+                MyDBPath.Text = OpenMyFileDialog.FileName;
+        }
     }
 }

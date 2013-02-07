@@ -39,14 +39,14 @@ namespace MagicManager
         private void SearchResultsView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int multiverseid = Convert.ToInt32(SearchResultsView.Rows[e.RowIndex].Cells["MultiverseID"].Value.ToString());
-            CardWin Card = new CardWin(multiverseid, this);
+            CardWin Card = new CardWin(multiverseid);
             Card.Show();
         }
         
         private void MyCards_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int multiverseid = Convert.ToInt32(MyCards.Rows[e.RowIndex].Cells["MultiverseID1"].Value.ToString());
-            CardWin Card = new CardWin(multiverseid, this);
+            CardWin Card = new CardWin(multiverseid);
             Card.Show();
         }
         
@@ -112,7 +112,7 @@ namespace MagicManager
             }
         }
 
-        private void BackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        private void BGWorkerDB_DoWork(object sender, DoWorkEventArgs e)
         {            
             try
             {
@@ -138,6 +138,11 @@ namespace MagicManager
                     SearchResultsView.Invoke((MethodInvoker)delegate { SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]"); });
             }
             catch (Exception) { }  
+        }
+
+        private void BGWorkerOwned_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
     }
 }
