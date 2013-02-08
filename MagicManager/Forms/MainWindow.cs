@@ -27,7 +27,7 @@ namespace MagicManager
 
         public void updateDB()
         {
-            BGWorkerDB.RunWorkerAsync();
+            CardsBGW.RunWorkerAsync();
         }
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,55 +64,13 @@ namespace MagicManager
             MyCards.Rows.Add(Card[0], Card[1], Card[7], stdOwned, foilOwned);
         }
 
-        public string[] GetCardInfo(int multiverseid)
-        {
-            string[] Card = new string[10];
-
-            OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.DatabaseLocation);
-            DBCon.Open();
-
-            OleDbDataAdapter CardDA = new OleDbDataAdapter("SELECT * FROM Cards WHERE MultiverseID = '" + multiverseid + "'", DBCon);
-            DataSet CardDS = new DataSet();
-            CardDA.Fill(CardDS);
-            DataTable CardDT = CardDS.Tables[0];
-            DBCon.Close();
-
-            for (int i = 0; i < CardDT.Rows.Count; i++)
-            {
-                for (int j = 0; j < CardDT.Columns.Count; j++)
-                {
-                    Card[j] = CardDT.Rows[i][j].ToString();
-                }
-            }
-            return Card;
-        }
-
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < CardName.Count; i++)
-            {
-                if (NameCheck.Checked == true && ExpanCheck.Checked == false)
-                {
-                    SearchResultsView.Rows.Clear();
-                    if (CardName[i].IndexOf(CardSearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
-                        SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
-                }
-                if (NameCheck.Checked == false && ExpanCheck.Checked == true)
-                {
-                    SearchResultsView.Rows.Clear();
-                    if (CardExpansion[i].IndexOf(ExpansionBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
-                        SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
-                }
-                if (NameCheck.Checked == true && ExpanCheck.Checked == true)
-                {
-                    SearchResultsView.Rows.Clear();
-                    if (CardName[i].IndexOf(CardSearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1 && CardExpansion[i].IndexOf(ExpansionBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
-                        SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]");
-                }
-            }
+            if (!SearchBGW.IsBusy)
+                SearchBGW.RunWorkerAsync();
         }
 
-        private void BGWorkerDB_DoWork(object sender, DoWorkEventArgs e)
+        private void CardsBGW_DoWork(object sender, DoWorkEventArgs e)
         {            
             try
             {
@@ -140,9 +98,32 @@ namespace MagicManager
             catch (Exception) { }  
         }
 
-        private void BGWorkerOwned_DoWork(object sender, DoWorkEventArgs e)
+        private void OwnedCardsBGW_DoWork(object sender, DoWorkEventArgs e)
         {
 
+        }
+
+        private void SearchBGW_DoWork(object sender, DoWorkEventArgs e)
+        {
+            SearchResultsView.Invoke((MethodInvoker)delegate { SearchResultsView.Rows.Clear(); });
+            for (int i = 0; i < CardName.Count; i++)
+            {
+                if (NameCheck.Checked == true && ExpanCheck.Checked == false)
+                {
+                    if (CardName[i].IndexOf(CardSearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
+                        SearchResultsView.Invoke((MethodInvoker)delegate { SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]"); });
+                }
+                if (NameCheck.Checked == false && ExpanCheck.Checked == true)
+                { 
+                    if (CardExpansion[i].IndexOf(ExpansionBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
+                        SearchResultsView.Invoke((MethodInvoker)delegate { SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]"); });
+                }
+                if (NameCheck.Checked == true && ExpanCheck.Checked == true)
+                {
+                    if (CardName[i].IndexOf(CardSearchBox.Text, StringComparison.OrdinalIgnoreCase) != -1 && CardExpansion[i].IndexOf(ExpansionBox.Text, StringComparison.OrdinalIgnoreCase) != -1)
+                        SearchResultsView.Invoke((MethodInvoker)delegate { SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]"); });
+                }
+            }
         }
     }
 }

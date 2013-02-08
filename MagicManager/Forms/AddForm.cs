@@ -21,7 +21,7 @@ namespace MagicManager
         {
             MainWin = MainWinIn as MainWindow;
             InitializeComponent();
-            Card = MainWin.GetCardInfo(multiverseid);
+            //Card = MainWin.GetCardInfo(multiverseid);
 
             multiverseID = multiverseid;
             CardName.Text = Card[1];

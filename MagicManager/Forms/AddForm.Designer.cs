@@ -100,7 +100,7 @@
             this.FoilCombo.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.FoilCombo.Location = new System.Drawing.Point(206, 159);
+            this.FoilCombo.Location = new System.Drawing.Point(206, 153);
             this.FoilCombo.Name = "FoilCombo";
             this.FoilCombo.Size = new System.Drawing.Size(100, 21);
             this.FoilCombo.TabIndex = 5;
@@ -111,7 +111,7 @@
             this.FoilLabel.AutoSize = true;
             this.FoilLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FoilLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.FoilLabel.Location = new System.Drawing.Point(185, 139);
+            this.FoilLabel.Location = new System.Drawing.Point(185, 133);
             this.FoilLabel.Name = "FoilLabel";
             this.FoilLabel.Size = new System.Drawing.Size(142, 17);
             this.FoilLabel.TabIndex = 6;

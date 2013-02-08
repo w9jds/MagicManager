@@ -54,10 +54,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.RarityCheck = new System.Windows.Forms.CheckBox();
             this.RarityLabel = new System.Windows.Forms.Label();
-            this.BGWorkerDB = new System.ComponentModel.BackgroundWorker();
+            this.CardsBGW = new System.ComponentModel.BackgroundWorker();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.BGWorkerOwned = new System.ComponentModel.BackgroundWorker();
+            this.OwnedCardsBGW = new System.ComponentModel.BackgroundWorker();
+            this.SearchBGW = new System.ComponentModel.BackgroundWorker();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).BeginInit();
@@ -343,9 +344,9 @@
             this.RarityLabel.Text = "Rarity:";
             this.RarityLabel.UseMnemonic = false;
             // 
-            // BGWorkerDB
+            // CardsBGW
             // 
-            this.BGWorkerDB.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGWorkerDB_DoWork);
+            this.CardsBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CardsBGW_DoWork);
             // 
             // StatusStrip
             // 
@@ -366,9 +367,14 @@
             this.toolStripProgressBar.Size = new System.Drawing.Size(100, 16);
             this.toolStripProgressBar.Visible = false;
             // 
-            // BGWorkerOwned
+            // OwnedCardsBGW
             // 
-            this.BGWorkerOwned.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BGWorkerOwned_DoWork);
+            this.OwnedCardsBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.OwnedCardsBGW_DoWork);
+            // 
+            // SearchBGW
+            // 
+            this.SearchBGW.WorkerSupportsCancellation = true;
+            this.SearchBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SearchBGW_DoWork);
             // 
             // MainWindow
             // 
@@ -433,10 +439,11 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.CheckBox RarityCheck;
         private System.Windows.Forms.Label RarityLabel;
-        private System.ComponentModel.BackgroundWorker BGWorkerDB;
+        private System.ComponentModel.BackgroundWorker CardsBGW;
         private System.Windows.Forms.StatusStrip StatusStrip;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
-        private System.ComponentModel.BackgroundWorker BGWorkerOwned;
+        private System.ComponentModel.BackgroundWorker OwnedCardsBGW;
+        private System.ComponentModel.BackgroundWorker SearchBGW;
     }
 }
 

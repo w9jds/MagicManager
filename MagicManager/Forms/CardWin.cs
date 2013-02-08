@@ -58,7 +58,7 @@ namespace MagicManager
             }
 
             CardName.Invoke((MethodInvoker)delegate { CardName.Text = Card[1]; });
-            
+
             if (Card[2] != "")
                 ConvMana.Invoke((MethodInvoker)delegate {  ConvMana.Text = "Converted Mana Cost: " + Card[2]; });
             else
