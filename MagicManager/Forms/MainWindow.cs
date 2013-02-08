@@ -18,11 +18,23 @@ namespace MagicManager
         private List<string> CardName = new List<string>();
         private List<string> CardExpansion = new List<string>();
         private List<string> CardImgURL = new List<string>();
+        private DataSet MyCardsDS = new DataSet();
 
         public MainWindow()
         {   
             InitializeComponent();
             updateDB();
+            checkOwnedDB();
+        }
+
+        public void checkOwnedDB()
+        {
+            if (Properties.Settings.Default.OwnedDatabase == "" || System.IO.File.Exists(Properties.Settings.Default.OwnedDatabase) == false)
+            {
+                MagicManager.Forms.WantNewDBForm Ask = new MagicManager.Forms.WantNewDBForm(this);
+                Ask.Show();
+            }
+
         }
 
         public void updateDB()
@@ -56,7 +68,6 @@ namespace MagicManager
             int multiverseid = Convert.ToInt32(SearchResultsView.Rows[row.Index].Cells["MultiverseID"].Value.ToString());
             AddForm AddCardForm = new AddForm(multiverseid, this);
             AddCardForm.Show();
-            
         }
 
         public void AddOwnedCard(string[] Card, int stdOwned, int foilOwned)
@@ -95,12 +106,30 @@ namespace MagicManager
                 for (int i = 0; i < CardName.Count; i++)
                     SearchResultsView.Invoke((MethodInvoker)delegate { SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [ " + CardExpansion[i] + " ]"); });
             }
-            catch (Exception) { }  
+            catch (Exception) {  }  
         }
 
         private void OwnedCardsBGW_DoWork(object sender, DoWorkEventArgs e)
         {
+            /*
+            try
+            {
+                OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.OwnedDatabase);
+                DBCon.Open();
 
+                OleDbDataAdapter CardDA = new OleDbDataAdapter("SELECT MultiverseID, Name, Expansion, stdAmount, foilAmount FROM MyCards", DBCon);
+                DataSet CardDS = new DataSet();
+                CardDA.Fill(CardDS);
+                DBCon.Close();
+
+                MyCardsBS = CardDS.Tables[0];
+                MyCards.Invoke((MethodInvoker)delegate { MyCards.DataSource = MyCardsBS; });
+
+
+                
+            }
+            catch (Exception) { }  
+             */
         }
 
         private void SearchBGW_DoWork(object sender, DoWorkEventArgs e)

@@ -24,10 +24,25 @@ namespace MagicManager
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.DatabaseLocation = DatabasePath.Text;
-            Properties.Settings.Default.OwnedDatabase = MyDBPath.Text;
+            bool updateDB = false;
+            bool updateOwnedDB = false;
+
+            if (Properties.Settings.Default.DatabaseLocation != DatabasePath.Text)
+            {
+                Properties.Settings.Default.DatabaseLocation = DatabasePath.Text;
+                updateDB = true;
+            }
+            if (Properties.Settings.Default.OwnedDatabase != MyDBPath.Text)
+            {
+                Properties.Settings.Default.OwnedDatabase = MyDBPath.Text;
+                updateOwnedDB = true;
+            }
+            
             Properties.Settings.Default.Save();
-            MainWin.updateDB();
+            
+            if (updateDB == true)
+                MainWin.updateDB();
+
             this.Close();
         }
 
@@ -44,6 +59,11 @@ namespace MagicManager
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.OwnedDatabase == "" || System.IO.File.Exists(Properties.Settings.Default.OwnedDatabase) == false)
+            {
+                MagicManager.Forms.WantNewDBForm Ask = new MagicManager.Forms.WantNewDBForm(this);
+                Ask.Show();
+            }
             this.Close();
         }
 

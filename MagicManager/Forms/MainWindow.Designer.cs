@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,10 +60,12 @@
             this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.OwnedCardsBGW = new System.ComponentModel.BackgroundWorker();
             this.SearchBGW = new System.ComponentModel.BackgroundWorker();
+            this.MyCardsBS = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).BeginInit();
             this.StatusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MyCardsBS)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -406,6 +409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).EndInit();
             this.StatusStrip.ResumeLayout(false);
             this.StatusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MyCardsBS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,6 +448,7 @@
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.ComponentModel.BackgroundWorker OwnedCardsBGW;
         private System.ComponentModel.BackgroundWorker SearchBGW;
+        private System.Windows.Forms.BindingSource MyCardsBS;
     }
 }
 
