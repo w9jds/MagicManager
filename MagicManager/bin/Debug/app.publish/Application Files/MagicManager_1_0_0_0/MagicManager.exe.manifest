@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="MagicManager.exe" version="1.0.0.0" publicKeyToken="fd133c38a836ef02" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="MagicManager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="MagicManager.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+            If you want to change the Windows User Account Control level replace the 
+            requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel node will disable file and registry virtualization.
+            If you want to utilize File and Registry Virtualization for backward 
+            compatibility then delete the requestedExecutionLevel node.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MagicManager.exe" size="35840">
+      <assemblyIdentity name="MagicManager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>orQJGSshtZbWm723MiDPv7ZzDHHFOy3Ju6A5lDmbNuc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="MagicManager.exe.config" size="1044">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FHcJmhcTT0FAUVP7gYQ43W9QpyY3PUWBirpPVP/hyfE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of all Windows versions that this application is designed to work with. 
+      Windows will automatically select the most compatible environment.-->
+      <!-- If your application is designed to work with Windows Vista, uncomment the following supportedOS node-->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}"></supportedOS>-->
+      <!-- If your application is designed to work with Windows 7, uncomment the following supportedOS node-->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}"/>-->
+      <!-- If your application is designed to work with Windows 8, uncomment the following supportedOS node-->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}"></supportedOS>-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=W9JDS-PRECISION\Jeremy" issuerKeyHash="91cabbfc56b622de0263c2da6ed95fc8fca6d9b4" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Pju4FGu6GNT5/uTnDzbc6tClc2gIeSJhMC+eX8v7Rv8=</DigestValue></Reference></SignedInfo><SignatureValue>GTTtFYN3zlRZdur1+51m2mdysAVqqSmwPmKa0w7b5+jrkhTbAE19bS5GOHLQYiMgtU9MrO77oxE+giHjX5Gwh46s4OcuZufHey1O+j6zCpQipCRoR/n7EmtBRFjE74KFG9sxIibkz/ur+7Wjh3Sk4aAr1d7XvGYPVY7C7kFaN+M=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>t/v/F87jot7NmsSbghkAAzNSA6vO7GY/m9VEWmB3bPI0yrqEC/3oGKlFdOajZUBKjrNaqeXTaZSNjLa0UTBTvue6+mGl+sz85rj5f4wlvD9zW7eYllXJdbHUuC0EabeNPwL9i6xD+W4Sio2mHXo2g8EqAHTlWD2oTRAeu2uRIQU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="ff46fbcb5f9e2f30612279086873a5d0eadc360fe7e4fef9d418ba6b14b83b3e" Description="" Url=""><as:assemblyIdentity name="MagicManager.exe" version="1.0.0.0" publicKeyToken="fd133c38a836ef02" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=W9JDS-PRECISION\Jeremy</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>KsBGYTyFlCOBvTmVn5N83NeTaUmWRVFgjgkQMbSYl98=</DigestValue></Reference></SignedInfo><SignatureValue>PNNqzs53TdJKP0oAuTgKDL54ZM80j7vSlM3ue2EGDNM9JUlPv7Y+9pXmQheJLUVBMTCsn/Mrr7JU6SJgWs6pQcUclTfdMovRHThxO6H3JcqblhmcDYubumu58d0JYx/6tjp2muxCiwno5VOch0HJZ+oYzqV/y4KvmMa+A9VIqBA=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>t/v/F87jot7NmsSbghkAAzNSA6vO7GY/m9VEWmB3bPI0yrqEC/3oGKlFdOajZUBKjrNaqeXTaZSNjLa0UTBTvue6+mGl+sz85rj5f4wlvD9zW7eYllXJdbHUuC0EabeNPwL9i6xD+W4Sio2mHXo2g8EqAHTlWD2oTRAeu2uRIQU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB8TCCAVqgAwIBAgIQQIomu6yKMIdE8UsK2gBH+zANBgkqhkiG9w0BAQsFADA3MTUwMwYDVQQDHiwAVwA5AEoARABTAC0AUABSAEUAQwBJAFMASQBPAE4AXABKAGUAcgBlAG0AeTAeFw0xMzAyMDcxOTIwNDVaFw0xNDAyMDgwMTIwNDVaMDcxNTAzBgNVBAMeLABXADkASgBEAFMALQBQAFIARQBDAEkAUwBJAE8ATgBcAEoAZQByAGUAbQB5MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3+/8XzuOi3s2axJuCGQADM1IDq87sZj+b1URaYHds8jTKuoQL/egYqUV05qNlQEqOs1qp5dNplI2MtrRRMFO+57r6YaX6zPzmuPl/jCW8P3Nbt5iWVcl1sdS4LQRpt40/Av2LrEP5bhKKjaYdejaDwSoAdOVYPahNEB67a5EhBQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAChvPXn87kDUlgvzmgO3ysVN2+txgsSjID+aAyKgoMLcxtnruFUxEc/MTaFnn63v9fn/2U4H0Nq1l3323tRhJhHcDfqb7Gp6zuON2rK5cKhu3X8koTXMgL7llkWtW13sQ3HqNQd96MCQdHW24sofb0iZ4Yp+c7ya8AmwmH0o8nqU</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
