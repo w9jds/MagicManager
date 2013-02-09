@@ -36,8 +36,6 @@ namespace MagicManager
 
         private void CardInfoBGW_DoWork(object sender, DoWorkEventArgs e)
         {
-            string[] CardInfo = new string[10];
-
             OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.DatabaseLocation);
             DBCon.Open();
 
@@ -46,8 +44,6 @@ namespace MagicManager
             CardDA.Fill(CardDS);
             DataTable CardDT = CardDS.Tables[0];
             DBCon.Close();
-
-            this.Card = CardInfo;
 
             for (int i = 0; i < CardDT.Rows.Count; i++)
             {

@@ -38,6 +38,8 @@
             this.CancelBtn = new System.Windows.Forms.Button();
             this.AmountFoilLabel = new System.Windows.Forms.Label();
             this.FoilAmount = new System.Windows.Forms.TextBox();
+            this.CardInfoBGW = new System.ComponentModel.BackgroundWorker();
+            this.AddToOwnedBGW = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // CardName
@@ -166,6 +168,14 @@
             this.FoilAmount.Visible = false;
             this.FoilAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FoilAmount_KeyPress);
             // 
+            // CardInfoBGW
+            // 
+            this.CardInfoBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CardInfoBGW_DoWork);
+            // 
+            // AddToOwnedBGW
+            // 
+            this.AddToOwnedBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.AddToOwnedBGW_DoWork);
+            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,5 +211,7 @@
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.Label AmountFoilLabel;
         private System.Windows.Forms.TextBox FoilAmount;
+        private System.ComponentModel.BackgroundWorker CardInfoBGW;
+        private System.ComponentModel.BackgroundWorker AddToOwnedBGW;
     }
 }

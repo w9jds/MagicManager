@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,11 +39,6 @@
             this.CardNameExpansion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardSearchBox = new System.Windows.Forms.TextBox();
             this.MyCards = new System.Windows.Forms.DataGridView();
-            this.MultiverseID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Expan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StdOwned = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FoilOwned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddBtn = new System.Windows.Forms.Button();
             this.SearchBtn = new System.Windows.Forms.Button();
             this.NameLabel = new System.Windows.Forms.Label();
@@ -60,12 +54,10 @@
             this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.OwnedCardsBGW = new System.ComponentModel.BackgroundWorker();
             this.SearchBGW = new System.ComponentModel.BackgroundWorker();
-            this.MyCardsBS = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).BeginInit();
             this.StatusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MyCardsBS)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -176,12 +168,6 @@
             this.MyCards.AllowUserToResizeRows = false;
             this.MyCards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MyCards.ColumnHeadersVisible = false;
-            this.MyCards.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MultiverseID1,
-            this.NameCard,
-            this.Expan,
-            this.StdOwned,
-            this.FoilOwned});
             this.MyCards.Location = new System.Drawing.Point(698, 75);
             this.MyCards.MultiSelect = false;
             this.MyCards.Name = "MyCards";
@@ -197,50 +183,6 @@
             this.MyCards.Size = new System.Drawing.Size(307, 426);
             this.MyCards.TabIndex = 4;
             this.MyCards.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MyCards_CellDoubleClick);
-            // 
-            // MultiverseID1
-            // 
-            this.MultiverseID1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.MultiverseID1.HeaderText = "ID";
-            this.MultiverseID1.Name = "MultiverseID1";
-            this.MultiverseID1.ReadOnly = true;
-            this.MultiverseID1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.MultiverseID1.Visible = false;
-            // 
-            // NameCard
-            // 
-            this.NameCard.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.NameCard.HeaderText = "Name";
-            this.NameCard.Name = "NameCard";
-            this.NameCard.ReadOnly = true;
-            this.NameCard.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NameCard.Width = 5;
-            // 
-            // Expan
-            // 
-            this.Expan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Expan.HeaderText = "Expansion";
-            this.Expan.Name = "Expan";
-            this.Expan.ReadOnly = true;
-            this.Expan.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Expan.Width = 5;
-            // 
-            // StdOwned
-            // 
-            this.StdOwned.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.StdOwned.HeaderText = "Standard";
-            this.StdOwned.Name = "StdOwned";
-            this.StdOwned.ReadOnly = true;
-            this.StdOwned.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.StdOwned.Width = 5;
-            // 
-            // FoilOwned
-            // 
-            this.FoilOwned.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.FoilOwned.HeaderText = "Foils";
-            this.FoilOwned.Name = "FoilOwned";
-            this.FoilOwned.ReadOnly = true;
-            this.FoilOwned.Width = 5;
             // 
             // AddBtn
             // 
@@ -361,7 +303,6 @@
             this.StatusStrip.Size = new System.Drawing.Size(1017, 22);
             this.StatusStrip.SizingGrip = false;
             this.StatusStrip.TabIndex = 16;
-            this.StatusStrip.Text = "statusStrip1";
             // 
             // toolStripProgressBar
             // 
@@ -409,7 +350,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).EndInit();
             this.StatusStrip.ResumeLayout(false);
             this.StatusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MyCardsBS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,11 +367,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MultiverseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardNameExpansion;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MultiverseID1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameCard;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Expan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StdOwned;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FoilOwned;
         private System.Windows.Forms.DataGridView MyCards;
         private System.Windows.Forms.ToolStripMenuItem deckToolStripMenuItem;
         private System.Windows.Forms.Button SearchBtn;
@@ -448,7 +383,6 @@
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.ComponentModel.BackgroundWorker OwnedCardsBGW;
         private System.ComponentModel.BackgroundWorker SearchBGW;
-        private System.Windows.Forms.BindingSource MyCardsBS;
     }
 }
 

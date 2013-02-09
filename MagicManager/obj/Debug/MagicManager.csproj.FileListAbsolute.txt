@@ -18,3 +18,5 @@ C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\Magic Manager.
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\Magic Manager.exe
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\Magic Manager.pdb
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.Forms.WantNewDBForm.resources
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\Interop.ADOX.dll
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.csproj.ResolveComReference.cache

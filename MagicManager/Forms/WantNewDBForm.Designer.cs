@@ -31,6 +31,7 @@
             this.Label = new System.Windows.Forms.TextBox();
             this.YesBtn = new System.Windows.Forms.Button();
             this.NoBtn = new System.Windows.Forms.Button();
+            this.MakeOwnedDBbgw = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // Label
@@ -75,6 +76,10 @@
             this.NoBtn.UseVisualStyleBackColor = true;
             this.NoBtn.Click += new System.EventHandler(this.NoBtn_Click);
             // 
+            // MakeOwnedDBbgw
+            // 
+            this.MakeOwnedDBbgw.DoWork += new System.ComponentModel.DoWorkEventHandler(this.MakeOwnedDBbgw_DoWork);
+            // 
             // WantNewDBForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,5 +101,6 @@
         private System.Windows.Forms.TextBox Label;
         private System.Windows.Forms.Button YesBtn;
         private System.Windows.Forms.Button NoBtn;
+        private System.ComponentModel.BackgroundWorker MakeOwnedDBbgw;
     }
 }

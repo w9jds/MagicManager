@@ -14,18 +14,17 @@ namespace MagicManager
     public partial class AddForm : Form
     {
         private MainWindow MainWin = null;
-        private string[] Card = new string[10];
+        private string[] Card = new string[3];
         private int multiverseID = 0;
+        private int foilAmount = 0;
+        private int stdAmount = 0;
 
         public AddForm(int multiverseid, Form MainWinIn)
         {
             MainWin = MainWinIn as MainWindow;
             InitializeComponent();
-            //Card = MainWin.GetCardInfo(multiverseid);
-
             multiverseID = multiverseid;
-            CardName.Text = Card[1];
-            CardExpansion.Text = Card[7];
+            CardInfoBGW.RunWorkerAsync();
         }
 
         private void NormMulti_KeyPress(object sender, KeyPressEventArgs e)
@@ -58,20 +57,56 @@ namespace MagicManager
         {
             if (FoilAmount.Visible == true)
             {
-                int stdAmount = Convert.ToInt32(NormMulti.Text) - Convert.ToInt32(FoilAmount.Text);
-                int FAmount = Convert.ToInt32(FoilAmount.Text);
-                MainWin.AddOwnedCard(Card, stdAmount, FAmount);
-                //MainWin.MyCards.Rows.Add(multiverseID, CName, CExpansion, stdAmount, FAmount);
+                stdAmount = Convert.ToInt32(NormMulti.Text) - Convert.ToInt32(FoilAmount.Text);
+                foilAmount = Convert.ToInt32(FoilAmount.Text);
             }
             else
-                MainWin.AddOwnedCard(Card, Convert.ToInt32(NormMulti.Text), 0);
-                //MainWin.MyCards.Rows.Add(multiverseID, CName, CExpansion, Convert.ToInt32(NormMulti.Text), 0);
+                stdAmount = Convert.ToInt32(NormMulti.Text);
+
+            AddToOwnedBGW.RunWorkerAsync();
             this.Close();
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CardInfoBGW_DoWork(object sender, DoWorkEventArgs e)
+        {
+            OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.DatabaseLocation);
+            DBCon.Open();
+
+            OleDbDataAdapter CardDA = new OleDbDataAdapter("SELECT MultiverseID, Name, Expansion FROM Cards WHERE MultiverseID = '" + multiverseID + "'", DBCon);
+            DataSet CardDS = new DataSet();
+            CardDA.Fill(CardDS);
+            DataTable CardDT = CardDS.Tables[0];
+            DBCon.Close();
+            
+            for (int i = 0; i < CardDT.Rows.Count; i++)
+            {
+                for (int j = 0; j < CardDT.Columns.Count; j++)
+                {
+                    Card[j] = CardDT.Rows[i][j].ToString();
+                }
+            }
+
+            CardName.Invoke((MethodInvoker)delegate { CardName.Text = Card[1]; });
+            CardExpansion.Invoke((MethodInvoker)delegate { CardExpansion.Text = Card[2]; });
+        }
+
+        private void AddToOwnedBGW_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
+            OleDbConnection DBcon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.OwnedDatabase);
+            DBcon.Open();
+            OleDbCommand DBcmd = new OleDbCommand();
+            DBcmd.Connection = DBcon;
+            DBcmd.CommandText = "INSERT INTO MyCards([MultiverseID], [Name], [Expansion], [stdAmount], [foilAmount]) Values ('" + Card[0] + "','" + Card[1] + "','" + Card[2] + "','" + stdAmount + "','" + foilAmount + "')";
+            DBcmd.ExecuteNonQuery();
+            DBcon.Close();
+           
+            MainWin.updateODB();
         }
     }
 }

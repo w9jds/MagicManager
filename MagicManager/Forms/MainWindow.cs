@@ -34,12 +34,18 @@ namespace MagicManager
                 MagicManager.Forms.WantNewDBForm Ask = new MagicManager.Forms.WantNewDBForm(this);
                 Ask.Show();
             }
-
+            else
+                updateODB();
         }
 
         public void updateDB()
         {
             CardsBGW.RunWorkerAsync();
+        }
+
+        public void updateODB()
+        {
+            OwnedCardsBGW.RunWorkerAsync();
         }
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -111,7 +117,6 @@ namespace MagicManager
 
         private void OwnedCardsBGW_DoWork(object sender, DoWorkEventArgs e)
         {
-            /*
             try
             {
                 OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.OwnedDatabase);
@@ -122,14 +127,11 @@ namespace MagicManager
                 CardDA.Fill(CardDS);
                 DBCon.Close();
 
-                MyCardsBS = CardDS.Tables[0];
-                MyCards.Invoke((MethodInvoker)delegate { MyCards.DataSource = MyCardsBS; });
-
-
-                
+                MyCards.Invoke((MethodInvoker)delegate { MyCards.DataSource = CardDS.Tables[0]; });
+  
             }
             catch (Exception) { }  
-             */
+
         }
 
         private void SearchBGW_DoWork(object sender, DoWorkEventArgs e)
