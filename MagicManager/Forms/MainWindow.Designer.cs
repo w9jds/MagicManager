@@ -341,7 +341,7 @@
             this.Controls.Add(this.CardSearchBox);
             this.Controls.Add(this.SearchResultsView);
             this.Controls.Add(this.menuStrip);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainWindow";
             this.menuStrip.ResumeLayout(false);

@@ -192,7 +192,7 @@
             this.Controls.Add(this.NormMulti);
             this.Controls.Add(this.AmountLabel);
             this.Controls.Add(this.CardName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddForm";
             this.ResumeLayout(false);
             this.PerformLayout();

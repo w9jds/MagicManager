@@ -15,9 +15,11 @@ namespace MagicManager
     {
         private MainWindow MainWin = null;
         private string[] Card = new string[3];
+        private string[] DoubleCard = new string[5];
         private int multiverseID = 0;
         private int foilAmount = 0;
         private int stdAmount = 0;
+        
 
         public AddForm(int multiverseid, Form MainWinIn)
         {
@@ -63,8 +65,43 @@ namespace MagicManager
             else
                 stdAmount = Convert.ToInt32(NormMulti.Text);
 
-            AddToOwnedBGW.RunWorkerAsync();
+            bool Double = checkIfExists();
+            if (Double == false)
+                AddToOwnedBGW.RunWorkerAsync();
+            else 
+            {
+                AddToDoubleFrm want = new AddToDoubleFrm(DoubleCard, stdAmount, foilAmount);
+                want.Show();
+            }
             this.Close();
+        }
+
+        private bool checkIfExists()
+        {
+               
+            OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.OwnedDatabase);
+            DBCon.Open();
+
+            OleDbDataAdapter CardDA = new OleDbDataAdapter("Select * From MyCards Where MultiverseID = '" + multiverseID + "'", DBCon);
+            DataSet CardDS = new DataSet();
+            CardDA.Fill(CardDS);
+            DataTable CardDT = CardDS.Tables[0];
+            DBCon.Close();
+
+            if (CardDT.Rows.Count != 0)
+            {
+                for (int i = 0; i < CardDT.Rows.Count; i++)
+                {
+                    for (int j = 0; j < CardDT.Columns.Count; j++)
+                    {
+                        DoubleCard[j] = CardDT.Rows[i][j].ToString();
+                    }
+                }
+                
+                return true;
+            }
+            else
+                return false;
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
@@ -94,6 +131,8 @@ namespace MagicManager
             CardName.Invoke((MethodInvoker)delegate { CardName.Text = Card[1]; });
             CardExpansion.Invoke((MethodInvoker)delegate { CardExpansion.Text = Card[2]; });
         }
+
+
 
         private void AddToOwnedBGW_DoWork(object sender, DoWorkEventArgs e)
         {

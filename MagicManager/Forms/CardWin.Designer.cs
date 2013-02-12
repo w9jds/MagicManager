@@ -190,7 +190,7 @@
             this.Controls.Add(this.ConvMana);
             this.Controls.Add(this.CardName);
             this.Controls.Add(this.CardPic);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(666, 374);
             this.MinimumSize = new System.Drawing.Size(666, 374);
