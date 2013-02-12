@@ -42,6 +42,8 @@ namespace MagicManager
             
             if (updateDB == true)
                 MainWin.updateDB();
+            if (updateOwnedDB == true)
+                MainWin.updateODB();
 
             this.Close();
         }

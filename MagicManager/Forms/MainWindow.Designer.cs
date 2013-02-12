@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,10 +55,14 @@
             this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.OwnedCardsBGW = new System.ComponentModel.BackgroundWorker();
             this.SearchBGW = new System.ComponentModel.BackgroundWorker();
+            this.MyCardsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchResultsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).BeginInit();
             this.StatusStrip.SuspendLayout();
+            this.MyCardsContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -183,6 +188,7 @@
             this.MyCards.Size = new System.Drawing.Size(307, 426);
             this.MyCards.TabIndex = 4;
             this.MyCards.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MyCards_CellDoubleClick);
+            this.MyCards.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.MyCards_CellMouseDown);
             // 
             // AddBtn
             // 
@@ -320,6 +326,33 @@
             this.SearchBGW.WorkerSupportsCancellation = true;
             this.SearchBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SearchBGW_DoWork);
             // 
+            // MyCardsContextMenu
+            // 
+            this.MyCardsContextMenu.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.MyCardsContextMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.MyCardsContextMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MyCardsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.MyCardsContextMenu.Name = "MyCardsContextMenu";
+            this.MyCardsContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.MyCardsContextMenu.ShowImageMargin = false;
+            this.MyCardsContextMenu.Size = new System.Drawing.Size(83, 48);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,6 +383,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MyCards)).EndInit();
             this.StatusStrip.ResumeLayout(false);
             this.StatusStrip.PerformLayout();
+            this.MyCardsContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,6 +417,9 @@
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.ComponentModel.BackgroundWorker OwnedCardsBGW;
         private System.ComponentModel.BackgroundWorker SearchBGW;
+        private System.Windows.Forms.ContextMenuStrip MyCardsContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
 

@@ -17,5 +17,15 @@ namespace MagicManager
             InitializeComponent();
             YouHaveDouble.Text = "You already have the card " + DoubleCard[1] + " from expansion " + DoubleCard[2] + " listed in your owned cards. It currently states you have " + DoubleCard[3] + " standard versions of the card, and " + DoubleCard[4] + " foil versions of the card. \nWould you like to add the entered amount to the amount already listed?";
         }
+
+        private void YesBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NoBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

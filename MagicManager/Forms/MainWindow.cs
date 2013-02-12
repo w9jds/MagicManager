@@ -18,11 +18,12 @@ namespace MagicManager
         private List<string> CardName = new List<string>();
         private List<string> CardExpansion = new List<string>();
         private List<string> CardImgURL = new List<string>();
-        private DataSet MyCardsDS = new DataSet();
+
 
         public MainWindow()
         {   
             InitializeComponent();
+            MyCards.ContextMenuStrip = MyCardsContextMenu;
             updateDB();
             checkOwnedDB();
         }
@@ -63,7 +64,7 @@ namespace MagicManager
         
         private void MyCards_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int multiverseid = Convert.ToInt32(MyCards.Rows[e.RowIndex].Cells["MultiverseID1"].Value.ToString());
+            int multiverseid = Convert.ToInt32(MyCards[0, e.RowIndex].Value.ToString());
             CardWin Card = new CardWin(multiverseid);
             Card.Show();
         }
@@ -119,6 +120,9 @@ namespace MagicManager
         {
             try
             {
+                List<string[]> MyCardsList = new List<string[]>();
+                
+                
                 OleDbConnection DBCon = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + Properties.Settings.Default.OwnedDatabase);
                 DBCon.Open();
 
@@ -127,8 +131,25 @@ namespace MagicManager
                 CardDA.Fill(CardDS);
                 DBCon.Close();
 
+                /*
+                for (int i = 0; i < CardDS.Tables[0].Rows.Count; i++)
+                {
+                    string[] Card = new string[5];
+                    for (int j = 0; j < CardDS.Tables[0].Columns.Count; j++)
+                    {
+                        Card[j] = CardDS.Tables[0].Rows[i][j].ToString();
+                    }
+                    MyCardsList.Add(Card);
+                }
+
+                MyCards.Invoke((MethodInvoker)delegate { MyCards.Rows.Clear(); });
+                for (int i = 0; i < MyCardsList.Count; i++)
+                {
+                    MyCards.Invoke((MethodInvoker)delegate { MyCards.Rows.Add(MyCardsList[i]); });
+                }
+                */
+
                 MyCards.Invoke((MethodInvoker)delegate { MyCards.DataSource = CardDS.Tables[0]; });
-  
             }
             catch (Exception) { }  
 
@@ -155,6 +176,25 @@ namespace MagicManager
                         SearchResultsView.Invoke((MethodInvoker)delegate { SearchResultsView.Rows.Add(CardMultiverseID[i], CardName[i] + " [" + CardExpansion[i] + "]"); });
                 }
             }
+        }
+
+        private void MyCards_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                MyCards.Rows[e.RowIndex].Selected = true;
+            }
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WantToRemove ask = new WantToRemove(MyCards[1, MyCards.CurrentCell.RowIndex].Value.ToString(), MyCards[0, MyCards.CurrentCell.RowIndex].Value.ToString(), this);
+            ask.Show();
         }
     }
 }

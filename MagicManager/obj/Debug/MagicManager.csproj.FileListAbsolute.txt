@@ -21,3 +21,4 @@ C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.F
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\Interop.ADOX.dll
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.csproj.ResolveComReference.cache
 C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.AddToDoubleFrm.resources
+C:\Users\Jeremy\Documents\Git\MagicManager\MagicManager\obj\Debug\MagicManager.WantToRemove.resources
