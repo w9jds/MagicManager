@@ -78,6 +78,7 @@
             this.StdAmount.Size = new System.Drawing.Size(100, 20);
             this.StdAmount.TabIndex = 2;
             this.StdAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.StdAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.StdAmount_KeyPress);
             // 
             // FoilAmount
             // 
@@ -86,6 +87,7 @@
             this.FoilAmount.Size = new System.Drawing.Size(100, 20);
             this.FoilAmount.TabIndex = 3;
             this.FoilAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FoilAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FoilAmount_KeyPress);
             // 
             // SaveBtn
             // 

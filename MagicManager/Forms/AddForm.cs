@@ -57,23 +57,30 @@ namespace MagicManager
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (FoilAmount.Visible == true)
+            if (FoilAmount.Visible == true && Convert.ToInt32(FoilAmount.Text) > Convert.ToInt32(NormMulti.Text))
             {
-                stdAmount = Convert.ToInt32(NormMulti.Text) - Convert.ToInt32(FoilAmount.Text);
-                foilAmount = Convert.ToInt32(FoilAmount.Text);
+                ErrorPanel.BackColor = System.Drawing.Color.Red;
             }
             else
-                stdAmount = Convert.ToInt32(NormMulti.Text);
-
-            bool Double = checkIfExists();
-            if (Double == false)
-                AddToOwnedBGW.RunWorkerAsync();
-            else 
             {
-                AddToDoubleFrm want = new AddToDoubleFrm(DoubleCard, stdAmount, foilAmount, MainWin);
-                want.Show();
+                if (FoilAmount.Visible == true)
+                {
+                    stdAmount = Convert.ToInt32(NormMulti.Text) - Convert.ToInt32(FoilAmount.Text);
+                    foilAmount = Convert.ToInt32(FoilAmount.Text);
+                }
+                else
+                    stdAmount = Convert.ToInt32(NormMulti.Text);
+
+                bool Double = checkIfExists();
+                if (Double == false)
+                    AddToOwnedBGW.RunWorkerAsync();
+                else
+                {
+                    AddToDoubleFrm want = new AddToDoubleFrm(DoubleCard, stdAmount, foilAmount, MainWin);
+                    want.Show();
+                }
+                this.Close();
             }
-            this.Close();
         }
 
         private bool checkIfExists()

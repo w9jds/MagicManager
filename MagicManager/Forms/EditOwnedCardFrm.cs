@@ -32,8 +32,16 @@ namespace MagicManager
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            stdAmount = StdAmount.Text;
-            foilAmount = FoilAmount.Text;
+            if (StdAmount.Text == "")
+                stdAmount = "0";
+            else
+                stdAmount = StdAmount.Text;
+            
+            if (FoilAmount.Text == "")
+                foilAmount = "0";
+            else
+                foilAmount = FoilAmount.Text;
+
             EditCardBGW.RunWorkerAsync();
             this.Close();
         }
@@ -51,6 +59,16 @@ namespace MagicManager
             cmd.ExecuteNonQuery();
             DBCon.Close();
             MainWin.updateODB();
+        }
+
+        private void StdAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void FoilAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

@@ -150,9 +150,13 @@ namespace MagicManager
                 */
 
                 MyCards.Invoke((MethodInvoker)delegate { MyCards.DataSource = CardDS.Tables[0]; });
+                MyCards.Invoke((MethodInvoker)delegate { MyCards.Columns[0].Visible = false; });
+                MyCards.Invoke((MethodInvoker)delegate { MyCards.Columns[1].Width = 166; });
+                MyCards.Invoke((MethodInvoker)delegate { MyCards.Columns[2].Width = 166; });
+                MyCards.Invoke((MethodInvoker)delegate { MyCards.Columns[3].Width = 50; });
+                MyCards.Invoke((MethodInvoker)delegate { MyCards.Columns[4].Width = 50; });
             }
             catch (Exception) { }  
-
         }
 
         private void SearchBGW_DoWork(object sender, DoWorkEventArgs e)
@@ -188,14 +192,15 @@ namespace MagicManager
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int row = MyCards.CurrentCell.RowIndex;
+            int row = MyCards.SelectedRows[0].Index;
             EditOwnedCardFrm editCard = new EditOwnedCardFrm(MyCards[0, row].Value.ToString(), MyCards[1, row].Value.ToString(), MyCards[2, row].Value.ToString(), MyCards[3, row].Value.ToString(), MyCards[4, row].Value.ToString(), this);
             editCard.Show();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            WantToRemove ask = new WantToRemove(MyCards[1, MyCards.CurrentCell.RowIndex].Value.ToString(), MyCards[0, MyCards.CurrentCell.RowIndex].Value.ToString(), this);
+            int row = MyCards.SelectedRows[0].Index;
+            WantToRemove ask = new WantToRemove(MyCards[1, row].Value.ToString(), MyCards[0, row].Value.ToString(), this);
             ask.Show();
         }
     }

@@ -40,6 +40,8 @@
             this.FoilAmount = new System.Windows.Forms.TextBox();
             this.CardInfoBGW = new System.ComponentModel.BackgroundWorker();
             this.AddToOwnedBGW = new System.ComponentModel.BackgroundWorker();
+            this.ErrorPanel = new System.Windows.Forms.Panel();
+            this.ErrorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // CardName
@@ -160,7 +162,7 @@
             // FoilAmount
             // 
             this.FoilAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FoilAmount.Location = new System.Drawing.Point(206, 203);
+            this.FoilAmount.Location = new System.Drawing.Point(3, 3);
             this.FoilAmount.Name = "FoilAmount";
             this.FoilAmount.Size = new System.Drawing.Size(100, 20);
             this.FoilAmount.TabIndex = 10;
@@ -176,13 +178,21 @@
             // 
             this.AddToOwnedBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.AddToOwnedBGW_DoWork);
             // 
+            // ErrorPanel
+            // 
+            this.ErrorPanel.Controls.Add(this.FoilAmount);
+            this.ErrorPanel.Location = new System.Drawing.Point(203, 203);
+            this.ErrorPanel.Name = "ErrorPanel";
+            this.ErrorPanel.Size = new System.Drawing.Size(106, 26);
+            this.ErrorPanel.TabIndex = 11;
+            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(513, 337);
-            this.Controls.Add(this.FoilAmount);
+            this.Controls.Add(this.ErrorPanel);
             this.Controls.Add(this.AmountFoilLabel);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.AddBtn);
@@ -194,6 +204,8 @@
             this.Controls.Add(this.CardName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddForm";
+            this.ErrorPanel.ResumeLayout(false);
+            this.ErrorPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +225,6 @@
         private System.Windows.Forms.TextBox FoilAmount;
         private System.ComponentModel.BackgroundWorker CardInfoBGW;
         private System.ComponentModel.BackgroundWorker AddToOwnedBGW;
+        private System.Windows.Forms.Panel ErrorPanel;
     }
 }

@@ -33,7 +33,6 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SearchResultsView = new System.Windows.Forms.DataGridView();
             this.MultiverseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +71,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1017, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1145, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -80,7 +79,6 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
-            this.saveToolStripMenuItem,
             this.preferencesToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -99,12 +97,6 @@
             this.deckToolStripMenuItem.Name = "deckToolStripMenuItem";
             this.deckToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.deckToolStripMenuItem.Text = "Deck";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.saveToolStripMenuItem.Text = "Save";
             // 
             // preferencesToolStripMenuItem
             // 
@@ -185,7 +177,7 @@
             this.MyCards.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.MyCards.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.MyCards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MyCards.Size = new System.Drawing.Size(307, 426);
+            this.MyCards.Size = new System.Drawing.Size(435, 426);
             this.MyCards.TabIndex = 4;
             this.MyCards.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MyCards_CellDoubleClick);
             this.MyCards.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.MyCards_CellMouseDown);
@@ -306,7 +298,7 @@
             this.toolStripProgressBar});
             this.StatusStrip.Location = new System.Drawing.Point(0, 515);
             this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(1017, 22);
+            this.StatusStrip.Size = new System.Drawing.Size(1145, 22);
             this.StatusStrip.SizingGrip = false;
             this.StatusStrip.TabIndex = 16;
             // 
@@ -358,7 +350,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1017, 537);
+            this.ClientSize = new System.Drawing.Size(1145, 537);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.RarityLabel);
             this.Controls.Add(this.RarityCheck);
@@ -400,7 +392,6 @@
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn MultiverseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardNameExpansion;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.DataGridView MyCards;
         private System.Windows.Forms.ToolStripMenuItem deckToolStripMenuItem;
         private System.Windows.Forms.Button SearchBtn;
