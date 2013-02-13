@@ -79,6 +79,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\EditOwnedCardFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditOwnedCardFrm.Designer.cs">
+      <DependentUpon>EditOwnedCardFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddToDoubleFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CardWin.resx">
       <DependentUpon>CardWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditOwnedCardFrm.resx">
+      <DependentUpon>EditOwnedCardFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LegalityWin.resx">
       <DependentUpon>LegalityWin.cs</DependentUpon>

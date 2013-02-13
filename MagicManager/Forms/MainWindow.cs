@@ -77,7 +77,7 @@ namespace MagicManager
             AddCardForm.Show();
         }
 
-        public void AddOwnedCard(string[] Card, int stdOwned, int foilOwned)
+        private void AddOwnedCard(string[] Card, int stdOwned, int foilOwned)
         {
             MyCards.Rows.Add(Card[0], Card[1], Card[7], stdOwned, foilOwned);
         }
@@ -188,7 +188,9 @@ namespace MagicManager
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            int row = MyCards.CurrentCell.RowIndex;
+            EditOwnedCardFrm editCard = new EditOwnedCardFrm(MyCards[0, row].Value.ToString(), MyCards[1, row].Value.ToString(), MyCards[2, row].Value.ToString(), MyCards[3, row].Value.ToString(), MyCards[4, row].Value.ToString(), this);
+            editCard.Show();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
