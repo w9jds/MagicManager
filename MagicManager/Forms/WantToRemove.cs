@@ -19,6 +19,7 @@ namespace MagicManager
         public WantToRemove(string Name, string multiverseID, Form mainwinin)
         {
             InitializeComponent();
+            this.TopMost = true;
             MultiverseID = multiverseID;
             MainWin = mainwinin as MainWindow;
             Ask.Text = "Are you sure you want to remove " + Name + " from your list of owned cards?";

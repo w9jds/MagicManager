@@ -23,6 +23,7 @@ namespace MagicManager
         public MainWindow()
         {   
             InitializeComponent();
+            this.TopLevel = true;
             MyCards.ContextMenuStrip = MyCardsContextMenu;
             updateDB();
             checkOwnedDB();

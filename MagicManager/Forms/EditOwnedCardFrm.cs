@@ -20,9 +20,21 @@ namespace MagicManager
             MainWin = mainwinin as MainWindow;
             MultiverseID = multiverseid;
             InitializeComponent();
+            this.TopMost = true;
             CardName.Text = name;
             CardExpansion.Text = expansion;
+            StdAmount.Text = stdAmount;
+            FoilAmount.Text = foilAmount;
+        }
 
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Magic Manager.exe" size="53248">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Magic Manager.exe" size="54784">
       <assemblyIdentity name="Magic Manager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>t9mSfJCq3doYbqPKKKcmEkphDoKaX979ktPKq6Y2vF8=</dsig:DigestValue>
+        <dsig:DigestValue>e2OW1eUgRdS9Bfqo7tb6EhNmcs0/XYVimxfZtv8MGRo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
