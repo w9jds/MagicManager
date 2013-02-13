@@ -19,7 +19,6 @@ namespace MagicManager
         private List<string> CardExpansion = new List<string>();
         private List<string> CardImgURL = new List<string>();
 
-
         public MainWindow()
         {   
             InitializeComponent();

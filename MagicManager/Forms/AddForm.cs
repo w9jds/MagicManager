@@ -70,7 +70,7 @@ namespace MagicManager
                 AddToOwnedBGW.RunWorkerAsync();
             else 
             {
-                AddToDoubleFrm want = new AddToDoubleFrm(DoubleCard, stdAmount, foilAmount);
+                AddToDoubleFrm want = new AddToDoubleFrm(DoubleCard, stdAmount, foilAmount, MainWin);
                 want.Show();
             }
             this.Close();

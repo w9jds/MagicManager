@@ -31,7 +31,7 @@
             this.YouHaveDouble = new System.Windows.Forms.TextBox();
             this.YesBtn = new System.Windows.Forms.Button();
             this.NoBtn = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.UpdateOwnedBWG = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // YouHaveDouble
@@ -76,6 +76,10 @@
             this.NoBtn.UseVisualStyleBackColor = true;
             this.NoBtn.Click += new System.EventHandler(this.NoBtn_Click);
             // 
+            // UpdateOwnedBWG
+            // 
+            this.UpdateOwnedBWG.DoWork += new System.ComponentModel.DoWorkEventHandler(this.UpdateOwnedBWG_DoWork);
+            // 
             // AddToDoubleFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,6 +101,6 @@
         private System.Windows.Forms.TextBox YouHaveDouble;
         private System.Windows.Forms.Button YesBtn;
         private System.Windows.Forms.Button NoBtn;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker UpdateOwnedBWG;
     }
 }

@@ -36,6 +36,7 @@
             this.CancelBtn = new System.Windows.Forms.Button();
             this.StdLabel = new System.Windows.Forms.Label();
             this.FoilLabel = new System.Windows.Forms.Label();
+            this.EditCardBGW = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // CardName
@@ -132,6 +133,10 @@
             this.FoilLabel.TabIndex = 7;
             this.FoilLabel.Text = "Foil";
             // 
+            // EditCardBGW
+            // 
+            this.EditCardBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.EditCardBGW_DoWork);
+            // 
             // EditOwnedCardFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,5 +168,6 @@
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.Label StdLabel;
         private System.Windows.Forms.Label FoilLabel;
+        private System.ComponentModel.BackgroundWorker EditCardBGW;
     }
 }
